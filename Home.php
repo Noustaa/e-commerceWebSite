@@ -47,6 +47,7 @@
                 $query = "SELECT ID, Nom, Image, Soldes, Prix FROM produit;";
                 $runQuery = mysqli_query($connect, $query);
                 while (true) {
+                    echo "<div>";
                     echo "<div style='display:inline-flex;'>";
                     for ($i=0; $i < 4; $i++) { 
                         if (($dataArray = mysqli_fetch_object($runQuery)) == NULL) {
@@ -63,6 +64,7 @@
                         }
                         echo "</div>";
                     }
+                    echo "</div>";
                     echo "</div>";
                     if ($dataArray == NULL) {
                         break;
