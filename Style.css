@@ -1,0 +1,109 @@
+.delPuces{
+    list-style-type: none;
+}
+
+.menuStyle>li{
+    font-size: 30px;
+    margin-right: 15px;
+    display: inline-flex;
+    border-top: 5px solid blue;
+    background-color: linear-gradient(right, blue , green);
+}
+
+.menuStyle li:hover{
+    border-top: 5px solid red;
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.menuButtonStyle li{background-image: linear-gradient(to right, #232526 0%, #414345  51%, #232526  100%)}
+.menuButtonStyle li{
+   margin: 10px;
+   padding: 15px 45px;
+   text-align: center;
+   text-transform: uppercase;
+   transition: 0.5s;
+   background-size: 200% auto;
+   color: white;            
+   box-shadow: 0 0 20px #eee;
+   border-radius: 10px;
+   display: inline-flex;
+ }
+
+ .menuButtonStyle li:hover {
+   background-position: right center; /* change the direction of the change here */
+   color: #fff;
+   text-decoration: none;
+ }
+
+.test>img{
+	display: inline-flex;
+	flex-shrink: 1;
+	padding: 8px;
+    width: 23%;
+	height: auto;
+ }
+.test2>img{
+	height: 300px;
+}
+
+ @keyframes AutoSlide {
+	0% {
+		left: 0px; /*1ère image*/
+	}
+	15% {
+		left: 0px; /*idem pour attente*/
+	}
+	35% {
+		left: -450px; /*2ème image*/
+	}
+	50% {
+		left: -450px; /*idem pour attente*/
+	}
+	70% {
+		left: -900px; /*3ème image*/
+	}
+	85% {
+		left: -900px; /*idem pour attente*/
+	}
+	100% {
+		left: 0px; /*1ère image*/
+	}
+}
+
+@keyframes AutoSlide {
+	0%, 15%, 100% {
+		left: 0px; /*1ère image*/
+	}
+	35%, 50% {
+		left: -450px; /*2ème image*/
+	}
+	70%, 85% {
+		left: -900px; /*3ème image*/
+	}
+}
+
+#slideshow {
+	position: relative;
+	width: 450px;
+	height: 450px;
+	margin:  20px auto;
+	overflow: hidden;
+}
+#sContent li {
+	display: inline;
+}
+
+#sContent {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 1350px;
+	margin: 0;            
+	padding: 0;
+	
+	/*CSS3 keyframes animation*/
+	animation-name: AutoSlide;
+	animation-duration: 10s;
+	animation-iteration-count: infinite;
+	animation-timing-function: ease-in-out;
+}
