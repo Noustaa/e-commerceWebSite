@@ -1,0 +1,26 @@
+.myAccount{
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 40%;
+    }
+
+.myAccount>div{
+    display: inline-flex;
+}
+
+.usernameDetails>p{
+    margin: 0;
+    padding-right: 10px;
+    
+}
+.usernameDetails>form>input{
+    font-size: 3mm;
+}
+.passwordDetails>p{
+    margin: 0;
+    padding-right: 10px;
+}
+.passwordDetails>form>input{
+    font-size: 3mm;
+}

@@ -1,6 +1,9 @@
 .delPuces{
     list-style-type: none;
 }
+.delPuces>a{
+	text-decoration: none;
+}
 
 .menuStyle>li{
     font-size: 30px;
@@ -35,15 +38,24 @@
    text-decoration: none;
  }
 
-.test>img{
+div.itemsRow{
 	display: inline-flex;
-	flex-shrink: 1;
-	padding: 8px;
-    width: 23%;
-	height: auto;
- }
-.test2>img{
-	height: 300px;
+}
+.item{
+	display: inline-block;
+	padding: 10px;
+	text-align: center;
+	position: relative;
+}
+.itemPicture{
+	max-width: 100%;
+	max-height: 600px;
+}
+.soldePicture{
+	position: absolute;
+	width: 100px;
+	top: 0px;
+	right: 0px;
 }
 
  @keyframes AutoSlide {
@@ -89,7 +101,7 @@
 	margin:  20px auto;
 	overflow: hidden;
 }
-#sContent li {
+#sContent>li {
 	display: inline;
 }
 
@@ -106,4 +118,10 @@
 	animation-duration: 10s;
 	animation-iteration-count: infinite;
 	animation-timing-function: ease-in-out;
+}
+
+.loginDiv{
+	text-align: center;
+	display: list-item ;
+	padding-top: 20px;
 }

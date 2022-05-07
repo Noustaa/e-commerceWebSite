@@ -1,0 +1,30 @@
+.leftPanel{
+    width: 15%;
+    float: left;
+}
+.leftPanel>ul{
+    background-color: lightgrey;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.leftPanel>ul>a{
+    text-align: center;
+    line-height: 40px;
+    vertical-align: middle;
+    text-decoration: none;
+    color: black;
+    height: 40px;
+}
+.leftPanel>ul>a:visited{
+    color: black;
+}
+.leftPanel>ul>a>li:hover{
+background-color: grey;
+}   
+
+.productPanel{
+    width: 85%;
+    text-align: center;
+    float: right;
+}
