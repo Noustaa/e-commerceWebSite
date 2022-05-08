@@ -58,6 +58,22 @@ div.itemsRow{
 	right: 0px;
 }
 
+.numberOfItemsInCart{
+	background-color:black;
+	color: white;
+	border-radius:50%;
+	width: 19px;
+    height: 19px;
+	border: 2px solid grey;
+	padding: 2px;
+	text-align: center;
+	float:right;
+	position:absolute;
+	right: 5px;
+	bottom: 0px;
+	margin: 0;
+}
+
  @keyframes AutoSlide {
 	0% {
 		left: 0px; /*1ère image*/

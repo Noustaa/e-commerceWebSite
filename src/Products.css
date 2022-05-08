@@ -28,3 +28,7 @@ background-color: grey;
     text-align: center;
     float: right;
 }
+
+.showItem{
+    float: left;
+}

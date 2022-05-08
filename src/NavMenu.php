@@ -40,6 +40,23 @@ if ($_SESSION["logged_in"] != "yes") {
 else {
     ?>
         <p style="position:absolute;top:0;right:0;">Bienvenue, <?php echo $_SESSION["username"]?>.</p>
+        <?php
+}
+if ($_SESSION["addToCart"]){
+    ?>
+        <a href="/src/Cart.php">
+            <div style="position:absolute;top:50px;right:20px;">
+                <img src="/ressources/panierPlein.png">
+                <p class="numberOfItemsInCart"><?php echo count($_SESSION["addToCart"]) ?></p>
+            </div>
+        </a>
+    <?php
+}
+else {
+    ?>
+        <a href="/src/Cart.php">
+            <img style="position:absolute;top:50px;right:20px;" src="/ressources/panierVide.png">
+        </a>
     <?php
 }
 ?>

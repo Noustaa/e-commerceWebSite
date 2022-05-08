@@ -13,7 +13,7 @@
 </head>
 
 <body>
-<?php include "./NavMenu.php" ?>
+<?php include "./NavMenu.php"?>
 
     <div id="slideshow">
         <ul id="sContent">
@@ -28,8 +28,7 @@
 
     <div>
         <?php
-        $connect = mysqli_connect("localhost", "noustaa", "ssss");
-        mysqli_select_db($connect, "dev");
+        $connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
         $query = "SELECT ID, Nom, Image, Soldes, Prix FROM produit;";
         $runQuery = mysqli_query($connect, $query);
 
