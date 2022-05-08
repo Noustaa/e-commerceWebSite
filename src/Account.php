@@ -23,9 +23,9 @@ session_start();
     ?>
         <div class="loginDiv">
             <form name="Form" action="Connect.php" method="POST">
-                <label for="name">Identifiant:</label>
+                <label for="user">Identifiant:</label>
                 <input type="text" id="user" name="user" />
-                <label for="mail">Mot de passe:</label>
+                <label for="password">Mot de passe:</label>
                 <input type="password" id="password" name="password" />
                 <button type="submit">Connexion</button>
             </form>

@@ -1,5 +1,18 @@
 <?php session_start(); ?>
 
+<script>
+    function toggleDisplayDiv()
+    {
+        var loginPopup = document.getElementById("loginPopup");
+        if (loginPopup.style.display == "none"){
+            loginPopup.style.display = "block";
+        }
+        else{
+            loginPopup.style.display = "none";
+        }
+    }
+</script>
+
 <link rel="stylesheet" href="/src/Style.css?v=<?php echo time(); ?>">
 
 <div>
@@ -25,6 +38,15 @@
             <a href="/src/Account.php">
                 <li>Mon compte</li>
             </a>
+            <?php
+            if ($_SESSION["isAdmin"] == "yes") {
+            ?>
+            <a href="#">
+                <li>Administration</li>
+            </a>
+            <?php
+                }
+            ?>
         </ul>
     </div>
 </nav>
@@ -34,12 +56,13 @@
 <?php
 if ($_SESSION["logged_in"] != "yes") {
     ?>
-       <p style="position:absolute;top:0;right:0;">Bonjour inconnu. Connectez vous ou enregistrez vous ici.</p>
+       <p style="position:absolute;top:5px;right:20px;margin-bottom:0">Bienvenue, <a href="javascript:toggleDisplayDiv()">connectez-vous</a> ou <a href="/src/Register.php">enregistrez vous.</a></p>
     <?php
 }
 else {
     ?>
-        <p style="position:absolute;top:0;right:0;">Bienvenue, <?php echo $_SESSION["username"]?>.</p>
+        <p style="position:absolute;top:0;right:10px;margin-bottom: 0;">Bienvenue, <?php echo $_SESSION["username"]?>.</p>
+        <a href="/src/Logout.php" style="position:absolute;top:30px;right:15px;">Se déconnecter</a>
         <?php
 }
 if ($_SESSION["addToCart"]){
@@ -59,4 +82,25 @@ else {
         </a>
     <?php
 }
+if ($_SESSION["isAdmin"] == "yes") {
+    ?>
+        <H1 style="position:absolute;top:10px;left:20px;color:red">ADMIN</H1>
+    <?php
+}
 ?>
+<div class="loginPopup" id="loginPopup" style="display: none">
+        <input type="image" src="/ressources/close.png" onclick="toggleDisplayDiv()">
+        <form name="Form" action="/src/Connect.php" method="POST">
+            <div>
+                <label for="user">Identifiant:</label>
+                <input type="text" id="user" name="user" />
+            </div>
+            <div>
+                <label for="password">Mot de passe:</label>
+                <input type="password" id="password" name="password" />
+            </div>
+            <div>
+                <button type="submit">Connexion</button>
+            </div>
+        </form>
+    </div>

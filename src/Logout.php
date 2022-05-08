@@ -8,5 +8,5 @@ session_unset();
 session_destroy();
 session_start();
 $_SESSION['addToCart'] = $addToCart;
-header('Location: Account.php');
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>

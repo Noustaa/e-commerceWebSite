@@ -62,12 +62,27 @@
             $runQuery = mysqli_query($connect, $query);
             $dataArray = mysqli_fetch_object($runQuery);
             ?>
-                <div>
-                    <img class="showItem" src="<?php echo "$dataArray->Image" ?>">
-                    <p>
-                        <?php
-                            echo "$dataArray->Nom<br>Prix: $dataArray->Prix €<br><br>$dataArray->Description";
-                        ?>
+                <div>   
+                    <p>                 
+                    <?php
+                        if ($dataArray->Soldes != 0) { //Si il y a des soldes sur l'article
+                            $discountedPrice = $dataArray->Prix - (($dataArray->Prix * $dataArray->Soldes) / 100);
+                    ?>
+                        <div class="onSaleShowItem">
+                            <img class="showItem" src="<?php echo "$dataArray->Image" ?>">
+                            <img class="soldePictureItem" src="../ressources/onSaleImage.png">
+                        </div>
+                            
+                            
+                            <p> <?php echo "$dataArray->Nom<br> Prix: <strike>{$dataArray->Prix}€</strike> ${discountedPrice}€<br> En soldes -$dataArray->Soldes%<br><br>$dataArray->Description" ?></p>
+                    <?php
+                        } else {
+                    ?>
+                            <img class="showItem" src="<?php echo "$dataArray->Image" ?>">
+                            <p><?php echo "$dataArray->Nom<br> Prix: {$dataArray->Prix}€<br><br>$dataArray->Description" ?></p>
+                    <?php
+                        }
+                    ?>
                         <br>
                         <br>
                         <form method="post">
@@ -121,5 +136,4 @@
         ?>
     </div>
 </body>
-
 </html>

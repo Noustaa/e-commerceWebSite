@@ -29,6 +29,17 @@ background-color: grey;
     float: right;
 }
 
+.onSaleShowItem{
+    position: relative;
+    float: left;
+}
 .showItem{
     float: left;
+    max-width: 500px;
+}
+.soldePictureItem{
+    position: absolute;
+    width: 20%;
+    top: 0%;
+    right: -30px;
 }

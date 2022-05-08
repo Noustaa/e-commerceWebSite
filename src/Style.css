@@ -141,3 +141,35 @@ div.itemsRow{
 	display: list-item ;
 	padding-top: 20px;
 }
+
+.loginPopup{
+    position: absolute;
+    top: 50px;
+    right: 15px;
+    background-color: white;
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 30px;
+    border: 1px solid black;
+}
+.loginPopup>form{
+    display: inline-block;
+}
+.loginPopup>form>div>input{
+    float: right;
+}
+.loginPopup label{
+    float: left;
+}
+.loginPopup button{
+    position: absolute;
+    bottom: 5px;
+    left: 37%;
+}
+.loginPopup>input{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 20px;
+}
