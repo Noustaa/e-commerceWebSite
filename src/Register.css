@@ -1,16 +1,26 @@
 .registerForm{
     text-align: center;
     margin: 0 auto;
+    position: relative;
+}
+.registerForm>fieldset>legend{
+    position: relative;
+    z-index: 1;
 }
 .registerForm>fieldset{
     width: 600px;
     margin: 0 auto;
     padding-bottom: 20px;
+    padding-top: 20px;
     margin-top: 30px;
+    background-color: lightgrey;
+    border-radius: 2%;
 }
 .registerForm>fieldset>legend{
     font-size: xx-large;
     margin-bottom: 15px;
+    color: lightsteelblue;
+    top: 4px;
 }
 .registerForm>fieldset>form{
     display: block;
@@ -52,4 +62,16 @@
 .registerForm input[type="submit"]{
     float: none;
     margin-top: 10px;
+}
+.whitePanel{
+    position: absolute;
+    top: 0;
+    left: 42.5%;
+    width: 14.5%;
+    height: 50px;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    background-color: #414345;
+    z-index: 0;
+    border: 2px solid black;
 }
