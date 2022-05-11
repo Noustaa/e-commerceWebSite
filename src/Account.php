@@ -22,6 +22,13 @@ session_start();
     if ($_SESSION["logged_in"] != "yes") {
     ?>
         <div class="loginDiv">
+            <?php
+                if (isset($_POST["registerQueryOK"])){
+                    ?>
+                        <p style="font-size: smaller;color:green; margin:0;margin-bottom:5px">Votre compte a bien été créé.<br>Vous pouvez désormais vous connecter.</p>
+                    <?php
+                }
+            ?>
             <form name="Form" action="Connect.php" method="POST">
                 <label for="user">Identifiant:</label>
                 <input type="text" id="user" name="user" />
@@ -158,6 +165,14 @@ session_start();
                 ?>
             </div>
             <br>
+            <div class="accountDetails">
+                <p>Prénom: <?php echo $_SESSION["prenom"] ?></p>
+                <p>Nom: <?php echo $_SESSION["nom"] ?></p>
+                <p>E-mail: <?php echo $_SESSION["email"] ?></p>
+                <p>Date de naissance: <?php if ($_SESSION["birthdate"] == "0000-00-00"){ echo "Non renseignée";}else{ echo $_SESSION["birthdate"];} ?></p>
+                <p>Genre: <?php if ($_SESSION["sexe"] == "N"){ echo "Non renseigné";}else{ echo $_SESSION["sexe"];}?></p>
+            </div>
+            <br>
             <br>
             <form action="Logout.php">
                 <button type="submit" style="margin-bottom: 10px;">Se déconnecter</button>
@@ -167,5 +182,4 @@ session_start();
     }
     ?>
 </body>
-
 </html>

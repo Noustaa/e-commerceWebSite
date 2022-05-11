@@ -13,7 +13,7 @@
         <fieldset class="editProduct">
             <legend>Modifier un produit</legend>
             <?php
-                if (!$_POST || $_POST["queryOK"] || $_POST["error"]) {
+                if (!$_POST["Prix"] || $_POST["queryOK"] || $_POST["error"]) {
                     if ($_POST["queryOK"]){
                         ?>
                             <p style="font-size: smaller;color:green; margin:0;margin-bottom:5px">Le produit a été correctement modifié.</p>
@@ -24,17 +24,17 @@
                             <p style="font-size: smaller;color:red; margin:0;margin-bottom:5px">Erreur, le produit n'a pas été modifié.</p>
                         <?php
                     }
-            ?>
-                <form action="GetItem.php" method="post">
-                    <p>
-                        <label for="productID">ID du produit: </label>
-                        <input type="text" name="productID" id="productID">
-                    </p>
-                    <p>
-                        <input type="submit" value="Modifier">
-                    </p>
-                </form>
-            <?php
+                ?>
+                    <form action="GetItem.php" method="post">
+                        <p>
+                            <label for="productID">ID du produit: </label>
+                            <input type="text" name="productID" id="productID">
+                        </p>
+                        <p>
+                            <input type="submit" value="Modifier">
+                        </p>
+                    </form>
+                <?php
             }
             else {
                 ?>
@@ -89,6 +89,27 @@
                 <?php
             }
             ?>
+        </fieldset>
+    </div>
+    <div style="position: relative; text-align:center;margin-top:20px;">
+        <fieldset class="deleteItem">
+            <legend>Supprimer un produit</legend>
+            <?php
+                if (isset($_POST["deleteQueryOK"])) {
+                        ?>
+                            <p style="font-size: smaller;color:green; margin:0;margin-bottom:5px">Le produit a été correctement supprimé.</p>
+                        <?php
+                    }
+            ?>
+            <form action="DeleteItem.php" method="post">
+                <p>
+                    <label for="productID">ID du produit: </label>
+                    <input type="text" name="productID" id="productID">
+                </p>
+                <p>
+                    <input type="submit" value="Supprimer" name="deleteItem" id="deleteItem">
+                </p>
+            </form>
         </fieldset>
     </div>
 </body>

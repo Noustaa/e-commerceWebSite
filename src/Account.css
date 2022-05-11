@@ -24,3 +24,9 @@
 .passwordDetails>form>input{
     font-size: 3mm;
 }
+.accountDetails{
+    flex-direction: column;
+}
+.accountDetails>p{
+margin: 5px;
+}

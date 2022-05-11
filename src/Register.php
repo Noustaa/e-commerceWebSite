@@ -23,19 +23,20 @@
 </head>
 
 <body>
-    <?php include "./NavMenu.php";
-    if ($_POST)
-    {
-        print_r($_POST);
-        echo $_POST['username'];
-    } ?>
-
+    <?php include "./NavMenu.php";?>
 
     <div class="registerForm">
         <fieldset>
             <legend>Inscription</legend>
             <span class="whitePanel"></span>
             <form action="RegisterUser.php" method="post">
+                <?php
+                    if (isset($_POST["registerQueryError"])){
+                        ?>
+                            <p style="font-size: smaller;color:red; margin:0;margin-bottom:5px">Ce nom d'utilisateur est déjà pris.<br><br></p>
+                        <?php
+                    }
+                ?>
                 <p>
                     <label for="username">Nom d'utilisateur:<span style="color: red;">*</span></label>
                     <input type="text" name="username" id="username" required>
@@ -71,7 +72,7 @@
                         <label for="sexeM">Masculin</label>
                         <input type="radio" id="sexeF" name="sexe" value="F">
                         <label for="sexeF">Féminin</label>
-                        <input type="radio" id="sexeN" name="sexe" value="N" default hidden>
+                        <input type="radio" id="sexeN" name="sexe" value="N" checked hidden>
                     </span>
                 </p>
                 <p>
@@ -80,9 +81,21 @@
             </form>
         </fieldset>
     </div>
-    <script>
-        document.getElementById("firstName").value = "<?php echo $_POST['username']?>";
-    </script>
+
+    <?php 
+        if (isset($_POST["registerQueryError"]))
+        {
+            ?>
+                <script>
+                    document.getElementById("username").value = "<?php echo $_POST['username']?>";
+                    document.getElementById("firstName").value = "<?php echo $_POST['firstName']?>";
+                    document.getElementById("lastName").value = "<?php echo $_POST['lastName']?>";
+                    document.getElementById("email").value = "<?php echo $_POST['email']?>";
+                </script>
+            <?php
+        }
+    
+    ?>
 </body>
 
 </html>

@@ -1,3 +1,7 @@
+a:visited,a{
+	color: blue;
+}
+
 .delPuces{
     list-style-type: none;
 }
@@ -38,26 +42,6 @@
    text-decoration: none;
  }
 
-div.itemsRow{
-	display: inline-flex;
-}
-.item{
-	display: inline-block;
-	padding: 10px;
-	text-align: center;
-	position: relative;
-}
-.itemPicture{
-	max-width: 100%;
-	max-height: 600px;
-}
-.soldePicture{
-	position: absolute;
-	width: 100px;
-	top: 0px;
-	right: 0px;
-}
-
 .numberOfItemsInCart{
 	background-color:black;
 	color: white;
@@ -76,37 +60,37 @@ div.itemsRow{
 
  @keyframes AutoSlide {
 	0% {
-		left: 0px; /*1ère image*/
+		left: 0px; 
 	}
 	15% {
-		left: 0px; /*idem pour attente*/
+		left: 0px; 
 	}
 	35% {
-		left: -450px; /*2ème image*/
+		left: -450px;
 	}
 	50% {
-		left: -450px; /*idem pour attente*/
+		left: -450px;
 	}
 	70% {
-		left: -900px; /*3ème image*/
+		left: -900px;
 	}
 	85% {
-		left: -900px; /*idem pour attente*/
+		left: -900px;
 	}
 	100% {
-		left: 0px; /*1ère image*/
+		left: 0px;
 	}
 }
 
 @keyframes AutoSlide {
 	0%, 15%, 100% {
-		left: 0px; /*1ère image*/
+		left: 0px;
 	}
 	35%, 50% {
-		left: -450px; /*2ème image*/
+		left: -450px;
 	}
 	70%, 85% {
-		left: -900px; /*3ème image*/
+		left: -900px;
 	}
 }
 
@@ -129,7 +113,6 @@ div.itemsRow{
 	margin: 0;            
 	padding: 0;
 	
-	/*CSS3 keyframes animation*/
 	animation-name: AutoSlide;
 	animation-duration: 10s;
 	animation-iteration-count: infinite;
@@ -172,4 +155,14 @@ div.itemsRow{
     top: 3px;
     right: 3px;
     width: 20px;
+}
+.adminFlag{
+	position:absolute;
+	top:10px;
+	left:20px;
+	color:white;
+	border: 1px red solid;
+	border-radius: 10px;
+	background-color: red;
+	padding: 3px;
 }

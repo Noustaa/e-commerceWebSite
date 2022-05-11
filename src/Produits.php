@@ -13,6 +13,7 @@
 
 <body>
     <?php 
+    print_r($_SESSION);
     if ($_POST["addToCart"])
     {
         if (!$_SESSION["addToCart"]){
@@ -106,28 +107,50 @@
                                 break;
                             }
                             ?>
-                            <a Style="color: inherit;" href="/src/Produits.php?productItem=<?php echo("$dataArray->ID")?>"><img class="itemPicture" src="<?php echo "$dataArray->Image" ?>"></a>
-                            <?php
+                            <div class="imageRelative">
+                                <a Style="color: inherit;" href="/src/Produits.php?productItem=<?php echo("$dataArray->ID")?>"><img class="itemPicture" src="<?php echo "$dataArray->Image" ?>"></a>
+                                <?php
                                 if ($_SESSION["isAdmin"] == "yes"){
                             ?>
-                            <form action="GetItem.php" method="post" class="editItemForm">
-                                <input type="hidden" name="productID" value="<?php echo $dataArray->ID?>">
-                                <input type="submit" value="Edit item">
-                            </form> 
+                                <form action="GetItem.php" method="post" class="editItemForm">
+                                    <input type="hidden" name="productID" value="<?php echo $dataArray->ID?>">
+                                    <input type="submit" value="Edit item">
+                                </form> 
+                                <form action="DeleteItem.php" method="post" class="deleteItemForm">
+                                    <input type="hidden" name="productID" value="<?php echo $dataArray->ID?>">
+                                    <input type="submit" value="Delete item">
+                                </form> 
                             <?php
                                 }
-                            if ($dataArray->Soldes != 0) { //Si il y a des soldes sur l'article
-                                $discountedPrice = $dataArray->Prix - (($dataArray->Prix * $dataArray->Soldes) / 100);
-                            ?>
-                                <img class="soldePicture" src="../ressources/onSaleImage.png">
-                                <p> <?php echo "$dataArray->Nom<br> Prix: <strike>{$dataArray->Prix}€</strike> ${discountedPrice}€<br> En soldes -$dataArray->Soldes%" ?></p>
-                            <?php
-                            } else {
-                            ?>
-                                <p><?php echo "$dataArray->Nom<br> Prix: {$dataArray->Prix}€" ?></p>
-                            <?php
-                            }
-                            ?>
+                                if ($dataArray->Soldes != 0) { //Si il y a des soldes sur l'article
+                                ?>
+                                    <img class="soldePicture" src="../ressources/onSaleImage.png">
+                                <?php
+                                }
+                                ?>
+                            </div>
+                            <div class="itemBottom">
+                                <?php
+                                    if ($dataArray->Soldes != 0) { //Si il y a des soldes sur l'article
+                                        $discountedPrice = $dataArray->Prix - (($dataArray->Prix * $dataArray->Soldes) / 100);
+                                    ?>
+                                        <p> <?php echo "$dataArray->Nom<br> Prix: <strike>{$dataArray->Prix}€</strike> ${discountedPrice}€<br> En soldes -$dataArray->Soldes%" ?></p>
+                                        <form method="post">
+                                            <input type="image" class="addToCartImage" src="/ressources/addToCart.png">
+                                            <input type="text" name="addToCart" value="<?php echo $dataArray->ID ?>" hidden readonly>
+                                        </form>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <p><?php echo "$dataArray->Nom<br> Prix: {$dataArray->Prix}€" ?></p>
+                                        <form method="post">
+                                            <input type="image" class="addToCartImage" src="/ressources/addToCart.png">
+                                            <input type="text" name="addToCart" value="<?php echo $dataArray->ID ?>" hidden readonly>
+                                        </form>
+                                    <?php
+                                    }
+                                ?>
+                            </div>
                         </div>
                     <?php
                     }

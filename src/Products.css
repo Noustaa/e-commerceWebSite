@@ -1,6 +1,7 @@
 .leftPanel{
     width: 15%;
     float: left;
+    margin-right: 1%;
 }
 .leftPanel>ul{
     background-color: lightgrey;
@@ -24,9 +25,38 @@ background-color: grey;
 }   
 
 .productPanel{
-    width: 85%;
+    width: 84%;
     text-align: center;
     float: right;
+    margin-top: 20px;
+}
+
+div.itemsRow{
+	display: inline-flex;
+    float: right;
+    width: 100%;
+}
+.item{
+	padding: 0 1% 0 0;
+	text-align: center;
+	position: relative;
+    width: 25%;
+    max-height:550px;
+}
+.imageRelative{
+    width: fit-content;
+    margin: 0 auto;
+    position: relative;
+}
+.itemPicture{
+	max-width: 100%;
+    height: 400px;
+}
+.soldePicture{
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 80px;
 }
 
 .onSaleShowItem{
@@ -35,7 +65,7 @@ background-color: grey;
 }
 .showItem{
     float: left;
-    max-width: 500px;
+    max-height: 450px;
 }
 .soldePictureItem{
     position: absolute;
@@ -43,9 +73,47 @@ background-color: grey;
     top: 0%;
     right: -30px;
 }
+.item>a{
+    display: block;
+}
+.addToCartImage{
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+}
+.addToCartImage:hover{
+    transform: scale(0.9);
+    transition: transform 0.2s;
+}
+.addToCartImage:active{
+    transform: scale(1.1);
+    transition: transform 0.1s;
+}
+.itemBottom{
+    width: 100%;
+    height: 100px;
+    position: relative;
+    top: 0;
+}
+.itemBottom>p{
+    width: 40%;
+    position:absolute;
+    top: 10px;
+    left: 0;
+    margin: 0;
+}
+.itemBottom>form>input{
+    width: 13%;
+    position:absolute;
+    top: 5px;
+    right: 10px;
+    transition: transform 0.2s;
+}
+
 .editItemForm{
     position: absolute;
-    top: 0;
+    top: -10px;
+    left: 0;
 }
 .editItemForm>input[type="submit"]{
     background-image: linear-gradient(to right, lightgrey, rgb(184, 179, 179));
@@ -63,4 +131,26 @@ background-color: grey;
     background-image: none;
     background-color: #4CAF50;
     color: white;
+}
+.deleteItemForm{
+    position: absolute;
+    top: -10px;
+    left: 75px;
+}
+.deleteItemForm>input[type="submit"]{
+    background-image: linear-gradient(to right, lightgrey, rgb(184, 179, 179));
+    border: none;
+    color: black;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.2s;
+    border-radius: 12px;
+}
+.deleteItemForm>input[type="submit"]:hover{
+    background-image: none;
+    background-color: red;
+    color: black;
 }

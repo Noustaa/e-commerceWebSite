@@ -68,7 +68,7 @@ else {
 if ($_SESSION["addToCart"]){
     ?>
         <a href="/src/Cart.php">
-            <div style="position:absolute;top:50px;right:20px;">
+            <div style="position:absolute;top:70px;right:20px;">
                 <img src="/ressources/panierPlein.png">
                 <p class="numberOfItemsInCart"><?php echo count($_SESSION["addToCart"]) ?></p>
             </div>
@@ -78,13 +78,13 @@ if ($_SESSION["addToCart"]){
 else {
     ?>
         <a href="/src/Cart.php">
-            <img style="position:absolute;top:50px;right:20px;" src="/ressources/panierVide.png">
+            <img style="position:absolute;top:70px;right:20px;" src="/ressources/panierVide.png">
         </a>
     <?php
 }
 if ($_SESSION["isAdmin"] == "yes") {
     ?>
-        <H1 style="position:absolute;top:10px;left:20px;color:red">ADMIN</H1>
+        <H1 class="adminFlag">ADMIN</H1>
     <?php
 }
 ?>

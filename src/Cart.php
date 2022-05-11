@@ -39,13 +39,24 @@
                     $query = "SELECT * FROM `produit` WHERE ID = $item;";
                     $runQuery = mysqli_query($connect, $query);
                     $dataArray = mysqli_fetch_object($runQuery);
+                    if (!isset($_POST["setCartQty"][$dataArray->ID])){
+                        $_POST["setCartQty"][$dataArray->ID] = 1;
+                    }
+                    else{
+                        $_POST["setCartQty"][$dataArray->ID] += 1;
+                    }
                     ?>
                     <script>
                         addToPrice(<?php echo $counter ?>, <?php echo $dataArray->Prix ?>);
                     </script>
+                    <?php
+                    $counter++;
+                }
+                foreach($_POST["setCartQty"] as $item){
+                    ?>
                         <div class="itemLine">
                             <img style="width: 100px;float: left;" src="<?php echo $dataArray->Image ?>">
-                            <p><?php echo "$dataArray->Nom <br> Prix: {$dataArray->Prix}€ <br>Quantité:" ?><input onchange="resetIndex(<?php echo $counter ?>);addToPrice(<?php echo $counter ?>, this.value * <?php echo $dataArray->Prix ?>); updatePrice();" style="width: 40px;" type="number" value="1" min="1" max="99"></p>
+                            <p><?php echo "$dataArray->Nom <br> Prix: {$dataArray->Prix}€ <br>Quantité:" ?><input onchange="resetIndex(<?php echo $counter ?>);addToPrice(<?php echo $counter ?>, this.value * <?php echo $dataArray->Prix ?>); updatePrice();" style="width: 40px;" type="number" value="<?php echo $item ?>" min="1" max="99"></p>
                             <form method="post">
                                 <button name="deleteFromCart" value="<?php echo $dataArray->ID ?>" type="submit">Suppimer du panier</button>
                             </form>
@@ -54,7 +65,6 @@
                         <hr style="width:50%;float: left;" , size="1" , color=black>
                         <br>
                     <?php
-                    $counter++;
                 }
             ?>
             <p style="float: left;margin-right: 150px;" id="totalPrice"></p>
