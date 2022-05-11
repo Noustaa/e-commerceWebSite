@@ -39,17 +39,16 @@ session_start();
             <br>
             <div class="usernameDetails">
                 <?php
-                // print_r($_POST);
-                // print_r($_SESSION);
                 if ($_POST["editUsername"]) {
                 ?>
                     <form method="post">
                         <p>Votre nom d'utilisateur: <input type="text" name="modifiedUsername" value="<?php echo $_SESSION["username"] ?>" style="width: 30%;text-align: center;">
-                            <input type="submit" class="validateUsername" name="validateUsername" value="Valider" />
+                            <input type="submit" class="validateUsername" name="validateUsername" value="Valider">
                         </p>
                     </form>
                     <?php
-                } elseif ($_POST["validateUsername"]) {
+                } 
+                elseif ($_POST["validateUsername"]) {
                     if (mysqli_query(mysqli_connect("localhost", "noustaa", "ssss", "dev"), "UPDATE `users` SET `username` = '" . $_POST["modifiedUsername"] . "' WHERE `users`.`userid` = " . $_SESSION["userid"] . ";")) {
                         $_SESSION["username"] = $_POST["modifiedUsername"];
                     ?>
@@ -80,10 +79,83 @@ session_start();
             </div>
             <br><br><br>
             <div class="passwordDetails">
-                <p>Votre mot de passe: ********</p>
-                <form method="post">
-                    <input type="submit" class="editPassword" name="editPassword" value="Modifier" />
-                </form>
+            <?php
+                if ($_POST["editPassword"]){
+                    ?>
+                        <form method="post">
+                            <p>Mot de passe actuel: <input type="password" name="currentPassword" style="width: 30%;text-align: center;"></p>
+                            <p>Nouveau mot de passe: <input type="password" name="newPassword1" style="width: 30%;text-align: center;"></p>
+                            <p>Nouveau mot de passe: <input type="password" name="newPassword2" style="width: 30%;text-align: center;"></p>
+                                <input type="submit" class="validatePassword" name="validatePassword" value="Valider">
+                            </p>
+                        </form>
+                    <?php
+                }
+                elseif ($_POST["validatePassword"])
+                {
+                    $n = $_SESSION["username"];
+                    $p = $_POST["currentPassword"];
+                    $connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
+                    $query = "SELECT username, password, userid FROM users WHERE `users`.`userid` = ".$_SESSION["userid"].";";
+                    $runQuery = mysqli_query($connect, $query);
+                    $dataArray = mysqli_fetch_row($runQuery);
+                    if ($dataArray[0] == "$n" && $dataArray[1] == "$p") {
+                        if ($_POST["newPassword1"] == $_POST["newPassword2"]){
+                            $query = "UPDATE `users` SET `password` = '".$_POST["newPassword1"]."' WHERE userid = ".$_SESSION["userid"].";";
+                            $runQuery = mysqli_query($connect, $query);
+                            if ($runQuery != false) {
+                                ?>
+                                    <p style="color: green;font-size: smaller;">Mot de passe modifié avec succès.</p>
+                                <?php 
+                            }
+                            else{
+                                ?>
+                                    <p style="color: red;font-size: smaller;">Une erreur est survenue. Le mot de passe n'a pas été modifié.</p>
+                                <?php 
+                            }
+                            ?>
+                                <p>Votre mot de passe: ********</p>
+                                <form method="post">
+                                    <input type="submit" class="editPassword" name="editPassword" value="Modifier" />
+                                </form>
+                            <?php
+                        }
+                        else{
+                            ?>
+                                <form method="post">
+                                    <p style="color: red;font-size: smaller;">Les mots de passe saisis ne sont pas identiques.</p>
+                                    <p>Mot de passe actuel: <input type="password" name="currentPassword" style="width: 30%;text-align: center;"></p>
+                                    <p>Nouveau mot de passe: <input type="password" name="newPassword1" style="width: 30%;text-align: center;"></p>
+                                    <p>Nouveau mot de passe: <input type="password" name="newPassword2" style="width: 30%;text-align: center;"></p>
+                                        <input type="submit" class="validatePassword" name="validatePassword" value="Valider">
+                                    </p>
+                                </form>
+                            <?php
+                        }
+                    }
+                    else{
+                        ?>
+                            <form method="post">
+                                <p style="color: red;font-size: smaller;">Votre mot de passe est incorrect.</p>
+                                <p>Mot de passe actuel: <input type="password" name="currentPassword" style="width: 30%;text-align: center;"></p>
+                                <p>Nouveau mot de passe: <input type="password" name="newPassword1" style="width: 30%;text-align: center;"></p>
+                                <p>Nouveau mot de passe: <input type="password" name="newPassword2" style="width: 30%;text-align: center;"></p>
+                                    <input type="submit" class="validatePassword" name="validatePassword" value="Valider">
+                                </p>
+                            </form>
+                        <?php
+                    }
+                }
+                else
+                {
+                    ?>
+                        <p>Votre mot de passe: ********</p>
+                        <form method="post">
+                            <input type="submit" class="editPassword" name="editPassword" value="Modifier" />
+                        </form>
+                    <?php
+                }
+                ?>
             </div>
             <br>
             <br>

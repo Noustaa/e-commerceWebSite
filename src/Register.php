@@ -27,7 +27,7 @@
     if ($_POST)
     {
         print_r($_POST);
-        echo $_POST['postBack']['username'];
+        echo $_POST['username'];
     } ?>
 
 
@@ -81,7 +81,7 @@
         </fieldset>
     </div>
     <script>
-                            document.getElementById("firstName").value = "<?php echo $_POST['postBack']['username']?>";
+        document.getElementById("firstName").value = "<?php echo $_POST['username']?>";
     </script>
 </body>
 

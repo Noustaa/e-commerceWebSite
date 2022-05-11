@@ -43,3 +43,24 @@ background-color: grey;
     top: 0%;
     right: -30px;
 }
+.editItemForm{
+    position: absolute;
+    top: 0;
+}
+.editItemForm>input[type="submit"]{
+    background-image: linear-gradient(to right, lightgrey, rgb(184, 179, 179));
+    border: none;
+    color: black;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.2s;
+    border-radius: 12px;
+}
+.editItemForm>input[type="submit"]:hover{
+    background-image: none;
+    background-color: #4CAF50;
+    color: white;
+}

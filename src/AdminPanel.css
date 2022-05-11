@@ -1,0 +1,42 @@
+.editProduct{
+    text-align: center;
+    margin: 0 auto;
+    width: 30%;
+}
+.editProduct>form{
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+.editProduct label{
+    float: left;
+    font-size: larger;
+    margin-right: 40px;
+}
+.editProduct label[for="image"],label[for="description"]{
+    float: left;
+    font-size: larger;
+    margin-right: 40px;
+    padding-top: 65px;
+}
+.editProduct input{
+    float: right;
+    width: 180px;
+    text-align: center;
+}
+.editProduct textarea{
+    float: right;
+    width: 182px;
+    height: 150px;
+    margin-bottom: 5px;
+}
+.editProduct>form>p{
+   display: table-row;
+   height: 25px;
+   margin: 0 auto;
+}
+.editProduct input[type="submit"],input[type="button"]{
+    float: none;
+    margin-top: 10px;
+}

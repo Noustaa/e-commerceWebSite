@@ -41,7 +41,7 @@
             <?php
             if ($_SESSION["isAdmin"] == "yes") {
             ?>
-            <a href="#">
+            <a href="/src/AdminPanel.php">
                 <li>Administration</li>
             </a>
             <?php

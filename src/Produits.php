@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start();?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -92,8 +92,7 @@
                 </div>
             <?php
         }
-
-        if (!$_GET["productItem"]){
+        else {
             $runQuery = mysqli_query($connect, $query);
             while (true) {
             ?>
@@ -109,6 +108,14 @@
                             ?>
                             <a Style="color: inherit;" href="/src/Produits.php?productItem=<?php echo("$dataArray->ID")?>"><img class="itemPicture" src="<?php echo "$dataArray->Image" ?>"></a>
                             <?php
+                                if ($_SESSION["isAdmin"] == "yes"){
+                            ?>
+                            <form action="GetItem.php" method="post" class="editItemForm">
+                                <input type="hidden" name="productID" value="<?php echo $dataArray->ID?>">
+                                <input type="submit" value="Edit item">
+                            </form> 
+                            <?php
+                                }
                             if ($dataArray->Soldes != 0) { //Si il y a des soldes sur l'article
                                 $discountedPrice = $dataArray->Prix - (($dataArray->Prix * $dataArray->Soldes) / 100);
                             ?>
