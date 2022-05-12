@@ -84,9 +84,35 @@
                                 </div>
                                 <div class="textWrapper">
                                     <p><?php echo "$dataArray->Nom" ?> </p>
-                                    <p>Prix: <?php echo "{$dataArray->Prix}" ?>€</p>
+                                    <?php 
+                                        if($dataArray->Soldes != 0)
+                                        {
+                                            $discountedPrice = $dataArray->Prix - (($dataArray->Prix * $dataArray->Soldes) / 100);
+                                            ?>
+                                                <p> <?php echo "Prix: <strike>{$dataArray->Prix}€</strike> ${discountedPrice}€<br> En soldes -$dataArray->Soldes%" ?></p>
+                                            <?php
+                                        }
+                                        else{
+                                            ?>
+                                                <p>Prix: <?php echo "{$dataArray->Prix}" ?>€</p>
+                                            <?php
+                                        }
+                                    ?>
                                     <form method="post">
-                                    <p style="display: inline-flexbox;">Quantité: <input  onchange="resetIndex(<?php echo $counter ?>);addToPrice(<?php echo $counter ?>, this.value * <?php echo $dataArray->Prix ?>); updatePrice(); updateQTY(this.value, <?php echo $id ?>);submit();" style="width: 40px;" type="number" value="<?php echo $qty ?>" min="1" max="99"></p>
+                                    <?php 
+                                        if($dataArray->Soldes != 0)
+                                        {
+                                            $discountedPrice = $dataArray->Prix - (($dataArray->Prix * $dataArray->Soldes) / 100);
+                                            ?>
+                                                <p style="display: inline-flexbox;">Quantité: <input  onchange="resetIndex(<?php echo $counter ?>);addToPrice(<?php echo $counter ?>, this.value * <?php echo $discountedPrice ?>); updatePrice(); updateQTY(this.value, <?php echo $id ?>);submit();" style="width: 40px;" type="number" value="<?php echo $qty ?>" min="1" max="99"></p>
+                                            <?php
+                                        }
+                                        else{
+                                            ?>
+                                                <p style="display: inline-flexbox;">Quantité: <input  onchange="resetIndex(<?php echo $counter ?>);addToPrice(<?php echo $counter ?>, this.value * <?php echo $dataArray->Prix ?>); updatePrice(); updateQTY(this.value, <?php echo $id ?>);submit();" style="width: 40px;" type="number" value="<?php echo $qty ?>" min="1" max="99"></p>
+                                            <?php
+                                        }
+                                    ?>
                                         <input type="text" name="qtyChange" value="<?php echo $id ?>" hidden readonly>
                                         <input type="text" name="qty" id="qty<?php echo $id ?>" value="" hidden readonly>
                                     </form>

@@ -42,6 +42,7 @@ div.itemsRow{
 	position: relative;
     width: 25%;
     max-height:550px;
+    margin-bottom: 50px;
 }
 .imageRelative{
     width: fit-content;
@@ -104,6 +105,8 @@ div.itemsRow{
     top: 10px;
     left: 0;
     margin: 0;
+    text-align: left;
+    padding-left: 10px;
 }
 .itemBottom>form>input{
     width: 13%;
