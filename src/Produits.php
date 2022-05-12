@@ -13,7 +13,6 @@
 
 <body>
     <?php 
-    print_r($_SESSION);
     if ($_POST["addToCart"])
     {
         if (!$_SESSION["addToCart"]){
@@ -114,11 +113,11 @@
                             ?>
                                 <form action="GetItem.php" method="post" class="editItemForm">
                                     <input type="hidden" name="productID" value="<?php echo $dataArray->ID?>">
-                                    <input type="submit" value="Edit item">
+                                    <input type="image" src="/ressources/edit.png">
                                 </form> 
                                 <form action="DeleteItem.php" method="post" class="deleteItemForm">
                                     <input type="hidden" name="productID" value="<?php echo $dataArray->ID?>">
-                                    <input type="submit" value="Delete item">
+                                    <input type="image" src="/ressources/delete.png">
                                 </form> 
                             <?php
                                 }

@@ -94,18 +94,18 @@ a:visited,a{
 	}
 }
 
-#slideshow {
+.slideshow {
 	position: relative;
 	width: 450px;
 	height: 450px;
 	margin:  20px auto;
 	overflow: hidden;
 }
-#sContent>li {
+.sContent>li {
 	display: inline;
 }
 
-#sContent {
+.sContent {
 	position: absolute;
 	top: 0;
 	left: 0;

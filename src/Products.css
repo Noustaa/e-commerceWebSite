@@ -111,46 +111,51 @@ div.itemsRow{
 }
 
 .editItemForm{
+    width: 40px;
     position: absolute;
-    top: -10px;
+    top: -20px;
     left: 0;
 }
-.editItemForm>input[type="submit"]{
-    background-image: linear-gradient(to right, lightgrey, rgb(184, 179, 179));
-    border: none;
-    color: black;
-    padding: 5px 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+.editItemForm>input[type="image"]{
+    position: relative;
+    background-color: lightgrey;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
     transition-duration: 0.2s;
-    border-radius: 12px;
 }
-.editItemForm>input[type="submit"]:hover{
-    background-image: none;
+.editItemForm>input[type="image"]:hover{
+    transform: scale(0.9);
+    transition: transform 0.2s;
     background-color: #4CAF50;
-    color: white;
+}
+.editItemForm>input[type="image"]:active{
+    transform: scale(1.1);
+    transition: transform 0.2s;
+    background-color: #4CAF50;
 }
 .deleteItemForm{
+    width: 40px;
     position: absolute;
-    top: -10px;
-    left: 75px;
+    top: -20px;
+    left: 58px;
 }
-.deleteItemForm>input[type="submit"]{
-    background-image: linear-gradient(to right, lightgrey, rgb(184, 179, 179));
-    border: none;
-    color: black;
-    padding: 5px 5px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
+.deleteItemForm>input[type="image"]{
+    position: relative;
+    background-color: lightgrey;
+    width: 100%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
     transition-duration: 0.2s;
-    border-radius: 12px;
 }
-.deleteItemForm>input[type="submit"]:hover{
+.deleteItemForm>input[type="image"]:hover{
     background-image: none;
     background-color: red;
-    color: black;
+}
+.deleteItemForm>input[type="image"]:active{
+    transform: scale(1.1);
+    transition: transform 0.2s;
+    background-color: #4CAF50;
 }
