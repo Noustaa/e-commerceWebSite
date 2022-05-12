@@ -12,6 +12,9 @@
     function addToPrice(index, number){
         price[index] = number;
     }
+    function updateQTY(qty, id){
+        document.getElementById("qty"+id).value = qty;
+    }
 </script>
 
 <!DOCTYPE html>
@@ -26,52 +29,87 @@
 <body>
     <?php
     if ($_POST["deleteFromCart"]) {
-        unset($_SESSION["addToCart"][array_search($_POST["deleteFromCart"], $_SESSION["addToCart"])]);
+        while (isset($_SESSION["addToCart"][array_search($_POST["deleteFromCart"], $_SESSION["addToCart"])])) {
+            unset($_SESSION["addToCart"][array_search($_POST["deleteFromCart"], $_SESSION["addToCart"])]);
+        }
     }
     include "./NavMenu.php"; ?>
-    <div>
+    <div class="itemDiv">
         <H1>Mon panier</H1>
-        <?php 
-            if ($_SESSION["addToCart"]) {
-                $connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
-                $counter = 0;
-                foreach ($_SESSION["addToCart"] as $item) {
-                    $query = "SELECT * FROM `produit` WHERE ID = $item;";
-                    $runQuery = mysqli_query($connect, $query);
-                    $dataArray = mysqli_fetch_object($runQuery);
-                    if (!isset($_POST["setCartQty"][$dataArray->ID])){
-                        $_POST["setCartQty"][$dataArray->ID] = 1;
+        <div class="lineWrapper">
+            <?php 
+                if ($_POST["qtyChange"]){
+                    $counter = 0;
+                    foreach ($_SESSION["addToCart"] as $id){
+                        if ($id == $_POST["qtyChange"]){
+                            $counter += 1;
+                        }
                     }
-                    else{
-                        $_POST["setCartQty"][$dataArray->ID] += 1;
+                    if ($counter > $_POST["qty"]){
+                        unset($_SESSION["addToCart"][array_search($_POST["qtyChange"], $_SESSION["addToCart"])]);
                     }
-                    ?>
-                    <script>
-                        addToPrice(<?php echo $counter ?>, <?php echo $dataArray->Prix ?>);
-                    </script>
-                    <?php
-                    $counter++;
+                    elseif ($counter < $_POST["qty"])
+                    {
+                        array_push($_SESSION["addToCart"], $_POST["qtyChange"]);
+                    }
                 }
-                foreach($_POST["setCartQty"] as $item){
-                    ?>
-                        <div class="itemLine">
-                            <img style="width: 100px;float: left;" src="<?php echo $dataArray->Image ?>">
-                            <p><?php echo "$dataArray->Nom <br> Prix: {$dataArray->Prix}€ <br>Quantité:" ?><input onchange="resetIndex(<?php echo $counter ?>);addToPrice(<?php echo $counter ?>, this.value * <?php echo $dataArray->Prix ?>); updatePrice();" style="width: 40px;" type="number" value="<?php echo $item ?>" min="1" max="99"></p>
-                            <form method="post">
-                                <button name="deleteFromCart" value="<?php echo $dataArray->ID ?>" type="submit">Suppimer du panier</button>
-                            </form>
-                        </div>
-                        <br>
-                        <hr style="width:50%;float: left;" , size="1" , color=black>
-                        <br>
-                    <?php
-                }
-            ?>
-            <p style="float: left;margin-right: 150px;" id="totalPrice"></p>
-            <script>updatePrice()</script>
-            <form action="">
-                <input style="margin-top:13px" type="submit" value="Valider votre panier">
-            </form>
+                if ($_SESSION["addToCart"]) {
+                    $connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
+                    $counter = 0;
+                    foreach ($_SESSION["addToCart"] as $item) {
+                        $query = "SELECT * FROM `produit` WHERE ID = $item;";
+                        $runQuery = mysqli_query($connect, $query);
+                        $dataArray = mysqli_fetch_object($runQuery);
+                        if (!isset($_POST["setCartQty"][$dataArray->ID])){
+                            $_POST["setCartQty"][$dataArray->ID] = 1;
+                        }
+                        else{
+                            $_POST["setCartQty"][$dataArray->ID] += 1;
+                        }
+                        ?>
+                        <script>
+                            addToPrice(<?php echo $counter ?>, <?php echo $dataArray->Prix ?>);
+                        </script>
+                        <?php
+                        $counter++;
+                    }
+                    foreach($_POST["setCartQty"] as $id => $qty){
+                        $query = "SELECT * FROM `produit` WHERE ID = $id;";
+                        $runQuery = mysqli_query($connect, $query);
+                        $dataArray = mysqli_fetch_object($runQuery);
+                        ?>
+                            <div class="itemLine">
+                                <div class="imageWrapper">
+                                    <img src="<?php echo $dataArray->Image ?>">
+                                </div>
+                                <div class="textWrapper">
+                                    <p><?php echo "$dataArray->Nom" ?> </p>
+                                    <p>Prix: <?php echo "{$dataArray->Prix}" ?>€</p>
+                                    <form method="post">
+                                    <p style="display: inline-flexbox;">Quantité: <input  onchange="resetIndex(<?php echo $counter ?>);addToPrice(<?php echo $counter ?>, this.value * <?php echo $dataArray->Prix ?>); updatePrice(); updateQTY(this.value, <?php echo $id ?>);submit();" style="width: 40px;" type="number" value="<?php echo $qty ?>" min="1" max="99"></p>
+                                        <input type="text" name="qtyChange" value="<?php echo $id ?>" hidden readonly>
+                                        <input type="text" name="qty" id="qty<?php echo $id ?>" value="" hidden readonly>
+                                    </form>
+                                    <p>
+                                        <form method="post">
+                                            <button name="deleteFromCart" value="<?php echo $dataArray->ID ?>" type="submit">Suppimer du panier</button>
+                                        </form>
+                                    </p>
+                                </div>
+                                <hr class="lineSeparator" , size="1" , color=black>
+                            </div>
+                        <?php
+                    }
+                ?>
+            </div>
+
+            <div class="detailsDiv"> 
+                <p style="float: left;margin-right: 150px;" id="totalPrice"></p>
+                <script>updatePrice()</script>
+                <form action="">
+                    <input style="margin-top:13px" type="submit" value="Valider votre panier">
+                </form>
+            </div>
         <?php
             }
             else {

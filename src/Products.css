@@ -80,14 +80,17 @@ div.itemsRow{
     border: 2px solid black;
     border-radius: 10px;
     padding: 5px;
+    background-color: lightgrey;
 }
 .addToCartImage:hover{
     transform: scale(0.9);
     transition: transform 0.2s;
+    background-color: #6495ED;
 }
 .addToCartImage:active{
     transform: scale(1.1);
     transition: transform 0.1s;
+    background-color: #6495ED;
 }
 .itemBottom{
     width: 100%;
@@ -151,11 +154,13 @@ div.itemsRow{
     transition-duration: 0.2s;
 }
 .deleteItemForm>input[type="image"]:hover{
+    transform: scale(0.9);
+    transition: transform 0.2s;
     background-image: none;
     background-color: red;
 }
 .deleteItemForm>input[type="image"]:active{
     transform: scale(1.1);
     transition: transform 0.2s;
-    background-color: #4CAF50;
+    background-color: red;
 }
