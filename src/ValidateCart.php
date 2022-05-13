@@ -13,7 +13,7 @@
     include "./ValidateCartHeader.php";
     $connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
     ?>
-    <?php if (!$_POST){
+    <?php if (!$_POST || $_POST["queryOKAddAddress"] || $_POST["queryOKAddCard"]){
         ?>
             <div class="mainWrapper">
                 <H1>Adresse de livraison:</H1>
@@ -66,6 +66,34 @@
                         }
                         ?>
                             <p>Vous n'avez pas encore enregistré d'adresse.</p>
+                    <div style="position: relative; text-align:center;margin-top:20px;">
+                    <H1>Enregistrer une nouvelle adresse:</H1>
+                    <fieldset class="addNewAddress">
+                        <legend>Ajouter une adresse</legend>
+                        <form action="AddAddress.php" method="post">
+                            <input type="hidden" name="ID" value="<?php echo $_SESSION["userid"] ?>">
+                            <p>
+                                <label for="numero">Numero de la rue: </label>
+                                <input type="text" name="numero" id="numero" required>
+                            </p>
+                            <p>
+                                <label for="rue">Rue: </label>
+                                <input type="text" name="rue" id="rue" required>
+                            </p>
+                            <p>
+                                <label for="codePostal">Code Postal: </label>
+                                <input type="text" name="codePostal" id="codePostal" required>
+                            </p>
+                            <p>
+                                <label for="ville">Ville: </label>
+                                <input type="text" name="ville" id="ville" required>
+                            </p>
+                            <p>
+                                <input type="submit" value="Valider">
+                            </p>
+                        </form>
+                    </fieldset>
+                    </div>
                         <?php
                     }
                 ?>
@@ -127,6 +155,34 @@
                         }
                         ?>
                             <p>Vous n'avez pas encore enregistré de carte de paiement.</p>
+                            <div style="position: relative; text-align:center;margin-top:20px;">
+                            <H1>Enregistrer une nouvelle carte de paiement:</H1>
+                            <fieldset class="addNewCard">
+                                <legend>Ajouter une carte de paiement</legend>
+                                <form action="AddCard.php" method="post">
+                                    <input type="hidden" name="ID" value="<?php echo $_SESSION["userid"] ?>">
+                                    <p>
+                                        <label for="titulaire">Nom et prénom: </label>
+                                        <input type="text" name="titulaire" id="titulaire" required>
+                                    </p>
+                                    <p>
+                                        <label for="numeroCarte">Numéro de carte: </label>
+                                        <input type="text" name="numeroCarte" id="numeroCarte" minlength="16" maxlength="16" required>
+                                    </p>
+                                    <p>
+                                        <label for="cvv">Code de sécurité (CVV): </label>
+                                        <input type="text" name="cvv" id="cvv" minlength="3" maxlength="3" required>
+                                    </p>
+                                    <p>
+                                        <label for="expiryDate">Date d'expiration: </label>
+                                        <input type="date" name="expiryDate" id="expiryDate" required>
+                                    </p>
+                                    <p>
+                                        <input type="submit" value="Valider">
+                                    </p>
+                                </form>
+                            </fieldset>
+                            </div>
                         <?php
                     }
                 ?>
@@ -215,6 +271,9 @@
             </div>      
         </div>
         <?php
+    }
+    else {
+        print_r($_POST);
     }
     ?>
 </body>
