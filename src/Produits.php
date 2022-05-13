@@ -31,7 +31,7 @@
             <a href="/src/Produits.php?categorie=Baskets"><li>Baskets</li></a>
             <a href="/src/Produits.php?categorie=TShirts"><li>T-Shirts</li></a>
             <a href="/src/Produits.php?categorie=Jeans"><li>Jeans</li></a>
-            <a href="/src/Produits.php?categorie=Manteaux"><li>Manteaux</li></a>
+            <a href="/src/Produits.php?categorie=Manteaux"><li>Manteaux & Blousons</li></a>
         </ul>
     </div>
     <?php } ?>

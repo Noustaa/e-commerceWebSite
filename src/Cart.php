@@ -68,7 +68,20 @@
                         }
                         ?>
                         <script>
-                            addToPrice(<?php echo $counter ?>, <?php echo $dataArray->Prix ?>);
+                            <?php
+                            if($dataArray->Soldes != 0)
+                                            {
+                                                $discountedPrice = $dataArray->Prix - (($dataArray->Prix * $dataArray->Soldes) / 100);
+                                                ?>
+                                                   addToPrice(<?php echo $counter ?>, <?php echo $discountedPrice ?>);
+                                                <?php
+                                            }
+                                            else{
+                                                ?>
+                                                    addToPrice(<?php echo $counter ?>, <?php echo $dataArray->Prix ?>);
+                                                <?php
+                                            }
+                                            ?>
                         </script>
                         <?php
                         $counter++;
@@ -132,7 +145,7 @@
             <div class="detailsDiv"> 
                 <p style="float: left;margin-right: 150px;" id="totalPrice"></p>
                 <script>updatePrice()</script>
-                <form action="">
+                <form action="ValidateCart.php" method="post">
                     <input style="margin-top:13px" type="submit" value="Valider votre panier">
                 </form>
             </div>

@@ -1,0 +1,52 @@
+.mainWrapper{
+    margin-left: 5%;
+}
+.secondWrapper{
+    display: inline-flex;
+    width: 100%;
+}
+.displayItemWrapper{
+    width: 35%;
+}
+.displayItem{
+    border: 1px solid black;
+    width: 100%;
+    margin-bottom: 20px;
+    transition-duration: 0.2s;
+}
+.displayItem:hover{
+    background-color: gainsboro;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition-duration: 0.2s;
+}
+.displayItemWrapper>input[type=radio]:checked + .radioValidator>div{
+    background-color: grey;
+}
+.displayItem>p{
+    margin-left: 20px;
+}
+.formValidate{
+    width: 20%;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.formValidate>input{
+    padding: 20px;
+}
+.recapWrapper{
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+}
+.recapWrapper>div{
+    text-align: center;
+    margin: 0 auto;
+    width: 48%;
+}
+.displayItemValidate{
+    border: 1px solid black;
+    width: 100%;
+    margin-bottom: 20px;
+}

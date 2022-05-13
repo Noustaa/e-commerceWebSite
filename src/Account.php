@@ -36,6 +36,7 @@ session_start();
                 <input type="password" id="password" name="password" />
                 <button type="submit">Connexion</button>
             </form>
+            <a style="display:block;margin-top:20px" href="/src/Register.php">Pas encore de compte ? Enregistrez vous.</a>
         </div>
     <?php
     } else {
