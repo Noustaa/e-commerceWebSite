@@ -47,7 +47,10 @@
     margin-bottom: 15px;
     justify-content: center;
 }
-.singleCommandHistoryRow>img{
+.singleCommandHistoryRow>a{
+    display: contents;
+}
+.singleCommandHistoryRow>a>img{
     max-width: 20%;
     margin-right: 10px;
 }

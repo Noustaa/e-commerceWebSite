@@ -183,7 +183,6 @@ session_start();
             $connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
             $query = "SELECT * FROM `commandes` where userid=".$_SESSION["userid"].";";
             $runQueryCommands = mysqli_query($connect, $query);
-
         ?>
         <div class="commandHistoryWrapper">
             <fieldset>
@@ -194,24 +193,24 @@ session_start();
                         $commandContent = $dataArray->contenu;
                         $numeroCommande = $dataArray->numeroCommande;
                         $date = $dataArray->date;
-                        $array = explode("/", $commandContent);
-                        $prix = $array[count($array)-1];
-                        $test = array();
-                        foreach ($array as $value) {
-                            array_push($test, explode("-", $value));
+                        $contentArray = explode("/", $commandContent);
+                        $prix = $contentArray[count($contentArray)-1];
+                        $singleContentArray = array();
+                        foreach ($contentArray as $value) {
+                            array_push($singleContentArray, explode("-", $value));
                         }
-                        unset($test[count($test)-1]);
+                        unset($singleContentArray[count($singleContentArray)-1]);
                         ?>
                     <div class="singleCommandHistory">
                         <div class="itemsWrapper">
                         <?php 
-                        foreach ($test as $value) {
+                        foreach ($singleContentArray as $value) {
                             ?> <div class="singleCommandHistoryRow"> <?php
                             $query = "SELECT * FROM `produit` where ID=".$value[0].";";
                             $runQuery = mysqli_query($connect, $query);
                             $dataArray = mysqli_fetch_object($runQuery);
                             ?>
-                            <img src="<?php echo $dataArray->Image ?>">
+                            <a href="/src/Produits.php?productItem=<?php echo $dataArray->ID ?>"><img src="<?php echo $dataArray->Image ?>"></a>
                             <p>Prix: <?php echo $value[2]."€<br>Quantité: ". $value[1] ?></p>
                             </div>
                             <?php
