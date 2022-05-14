@@ -11,7 +11,7 @@
 <body>
     <?php include "./NavMenu.php";
     include "./ValidateCartHeader.php";
-    $connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
+    $connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
     ?>
     <?php if (!$_POST || $_POST["queryOKAddAddress"] || $_POST["queryOKAddCard"]){
         ?>
@@ -201,7 +201,7 @@
                 <?php
                 $totalPrice = 0;
                     if ($_SESSION["addToCart"]) {
-                        $connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
+                        $connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
                         foreach ($_SESSION["addToCart"] as $item) {
                             $query = "SELECT * FROM `produit` WHERE ID = $item;";
                             $runQuery = mysqli_query($connect, $query);

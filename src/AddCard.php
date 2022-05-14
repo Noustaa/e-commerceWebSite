@@ -1,6 +1,6 @@
 <?php
 
-$connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
+$connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
     if ($_POST){
         $id = $_POST['ID'];
         $titulaire = $_POST['titulaire'];

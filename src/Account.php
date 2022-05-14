@@ -103,7 +103,7 @@ session_start();
                 {
                     $n = $_SESSION["username"];
                     $p = $_POST["currentPassword"];
-                    $connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
+                    $connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
                     $query = "SELECT username, password, userid FROM users WHERE `users`.`userid` = ".$_SESSION["userid"].";";
                     $runQuery = mysqli_query($connect, $query);
                     $dataArray = mysqli_fetch_row($runQuery);
@@ -180,7 +180,7 @@ session_start();
             </form>
         </div>
         <?php
-            $connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
+            $connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
             $query = "SELECT * FROM `commandes` where userid=".$_SESSION["userid"].";";
             $runQueryCommands = mysqli_query($connect, $query);
         ?>

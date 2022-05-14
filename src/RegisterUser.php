@@ -13,7 +13,7 @@ else{
     $birthdate = "0000-00-00";
 }
 
-$connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
+$connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
 $query = "INSERT INTO `users` (`userid`, `username`, `password`, `prenom`, `nom`, `mail`, `birthdate`, `sexe`) VALUES (NULL, '$username', '$password', '$firstName', '$lastName', '$email', '$birthdate', '$sexe');";
 $runQuery = mysqli_query($connect, $query);
 

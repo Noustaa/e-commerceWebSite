@@ -58,7 +58,7 @@
                 }
             }
             if ($_SESSION["addToCart"]) {
-                $connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
+                $connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
                 $counter = 0;
                 foreach ($_SESSION["addToCart"] as $item) {
                     $query = "SELECT * FROM `produit` WHERE ID = $item;";

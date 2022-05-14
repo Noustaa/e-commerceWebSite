@@ -37,8 +37,7 @@
     <?php } ?>
     <div class="productPanel">
         <?php
-        $connect = mysqli_connect("localhost", "noustaa", "ssss");
-        mysqli_select_db($connect, "dev");
+        $connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
         if ($_GET["categorie"] == "Bonnets"){
             $query = "SELECT ID, Nom, Image, Soldes, Prix FROM produit WHERE Categorie = 1;";
         }
