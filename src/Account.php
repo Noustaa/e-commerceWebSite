@@ -179,6 +179,58 @@ session_start();
                 <button type="submit" style="margin-bottom: 10px;">Se déconnecter</button>
             </form>
         </div>
+        <?php
+            $connect = mysqli_connect("localhost", "noustaa", "ssss", "dev");
+            $query = "SELECT * FROM `commandes` where userid=".$_SESSION["userid"].";";
+            $runQueryCommands = mysqli_query($connect, $query);
+
+        ?>
+        <div class="commandHistoryWrapper">
+            <fieldset>
+                <legend>Historique des commandes</legend>
+                <div class="globalCommandHistory">
+                    <?php 
+                    while (($dataArray = mysqli_fetch_object($runQueryCommands)) != null) {
+                        $commandContent = $dataArray->contenu;
+                        $numeroCommande = $dataArray->numeroCommande;
+                        $date = $dataArray->date;
+                        $array = explode("/", $commandContent);
+                        $prix = $array[count($array)-1];
+                        $test = array();
+                        foreach ($array as $value) {
+                            array_push($test, explode("-", $value));
+                        }
+                        unset($test[count($test)-1]);
+                        ?>
+                    <div class="singleCommandHistory">
+                        <div class="itemsWrapper">
+                        <?php 
+                        foreach ($test as $value) {
+                            ?> <div class="singleCommandHistoryRow"> <?php
+                            $query = "SELECT * FROM `produit` where ID=".$value[0].";";
+                            $runQuery = mysqli_query($connect, $query);
+                            $dataArray = mysqli_fetch_object($runQuery);
+                            ?>
+                            <img src="<?php echo $dataArray->Image ?>">
+                            <p>Prix: <?php echo $value[2]."€<br>Quantité: ". $value[1] ?></p>
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        </div>
+                        <div class="detailsWrapper">
+                        <p>Numero de commande: <?php echo $numeroCommande ?></p>
+                        <p>Date de la commande: <?php echo $date ?></p>
+                        <p>Prix TTC: <?php echo $prix ?>€</p>
+                        </div>
+                    </div>
+                    <?php
+                    } 
+                    ?>
+                </div>
+                <a name="commandHistory"></a>
+            </fieldset>
+        </div>
     <?php
     }
     ?>

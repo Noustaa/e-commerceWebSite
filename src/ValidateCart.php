@@ -213,10 +213,12 @@
                                 $_POST["setCartQty"][$dataArray->ID] += 1;
                             }
                         }
+                        $commandSave = "";
                         foreach($_POST["setCartQty"] as $id => $qty){
                             $query = "SELECT * FROM `produit` WHERE ID = $id;";
                             $runQuery = mysqli_query($connect, $query);
                             $dataArray = mysqli_fetch_object($runQuery);
+                            $commandSave .= "$id-$qty"
                             ?>
                                 <div class="itemLine">
                                     <div class="imageWrapper">
@@ -229,12 +231,14 @@
                                             {
                                                 $discountedPrice = $dataArray->Prix - (($dataArray->Prix * $dataArray->Soldes) / 100);
                                                 $totalPrice += $qty * $discountedPrice;
+                                                $commandSave .= "-$discountedPrice/";
                                                 ?>
                                                     <p> <?php echo "Prix: <strike>{$dataArray->Prix}€</strike> ${discountedPrice}€<br> En soldes -$dataArray->Soldes%" ?></p>
                                                 <?php
                                             }
                                             else{
                                                 $totalPrice += $qty * $dataArray->Prix;
+                                                $commandSave .= "-$dataArray->Prix/";
                                                 ?>
                                                     <p>Prix: <?php echo "{$dataArray->Prix}" ?>€</p>
                                                 <?php
@@ -246,6 +250,7 @@
                                 </div>
                             <?php
                         }
+                        $commandSave .= "$totalPrice";
                     ?>
                 </div>
             <?php
@@ -259,6 +264,11 @@
                     for ($i=0; $i < $_POST["selectedAddressValidate"]; $i++) { 
                         $dataArray = mysqli_fetch_object($runQuery);
                     }
+                    $query = "INSERT INTO `commandes` (`userid`, `date`, `contenu`, `numeroCommande`) VALUES ('".$_SESSION["userid"]."', '".date('Y-m-d')."', '".$commandSave."', NULL);";
+                    $runQuery = mysqli_query($connect, $query);
+                    $query = "SELECT numeroCommande FROM commandes ORDER BY numeroCommande DESC LIMIT 1;";
+                    $runQuery = mysqli_query($connect, $query);
+                    $commandNumber = mysqli_fetch_object($runQuery);
                 ?>
                 <div class="displayItemValidate">
                     <p>Rue: <?php echo "$dataArray->Numero, $dataArray->Rue" ?></p>
@@ -268,12 +278,17 @@
                 <div class="recapPrice">
                     <p>Prix TTC: <?php echo $totalPrice ?>€</p>
                 </div>
+                <div>
+                    <p>Numéro de commande: <?php echo $commandNumber->numeroCommande ?></p>
+                    <p>Vous pouvez consulter votre commande dans votre <a href="/src/Account.php#commandHistory">historique de commandes.</a></p>
+                    <p><a href="/src/Home.php">Retourner à l'accueil.</a></p>
+                </div>
             </div>      
         </div>
         <?php
+        unset($_SESSION["addToCart"]);
     }
     else {
-        print_r($_POST);
     }
     ?>
 </body>

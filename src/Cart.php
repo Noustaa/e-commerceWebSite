@@ -35,7 +35,7 @@
 <body>
     <?php
     if ($_POST["deleteFromCart"]) {
-        while (isset($_SESSION["addToCart"][array_search($_POST["deleteFromCart"], $_SESSION["addToCart"])])) {
+        for ($i=0; $i < $_POST["qtyToDelete"]; $i++) { 
             unset($_SESSION["addToCart"][array_search($_POST["deleteFromCart"], $_SESSION["addToCart"])]);
         }
     }
@@ -128,6 +128,7 @@
                             </form>
                             <p>
                             <form method="post">
+                                <input type="hidden" name="qtyToDelete" value="<?php echo $qty ?>">
                                 <button name="deleteFromCart" value="<?php echo $dataArray->ID ?>" type="submit">Suppimer du panier</button>
                             </form>
                             </p>

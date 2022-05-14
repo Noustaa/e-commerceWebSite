@@ -3,7 +3,8 @@
     margin: 0 auto;
     border: 1px solid black;
     width: 40%;
-    }
+    margin-bottom: 30px;
+}
 
 .myAccount>div{
     display: inline-flex;
@@ -28,5 +29,31 @@
     flex-direction: column;
 }
 .accountDetails>p{
-margin: 5px;
+    margin: 5px;
+}
+.commandHistoryWrapper{
+    text-align: center;
+    margin: 0 auto;
+    width: 40%;
+}
+.singleCommandHistory{
+    display: flex;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 5px
+}
+.singleCommandHistoryRow{
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+.singleCommandHistoryRow>img{
+    max-width: 20%;
+    margin-right: 10px;
+}
+.itemsWrapper{
+    width: 50%;
+}
+.detailsWrapper{
+    width: 50%;
 }
