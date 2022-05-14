@@ -13,7 +13,7 @@
     }
 </script>
 
-<link rel="stylesheet" href="/src/Style.css?v=<?php echo time(); ?>">
+<link rel="stylesheet" href="Style.css?v=<?php echo time(); ?>">
 
 <div>
     <hr style="width:100%" , size="6" , color=black>
@@ -26,22 +26,22 @@
 <nav style="text-align: center;">
     <div>
         <ul class="delPuces menuButtonStyle">
-            <a href="/src/Home.php">
+            <a href="Home.php">
                 <li>Accueil</li>
             </a>
-            <a href="/src/Produits.php">
+            <a href="Produits.php">
                 <li>Produits</li>
             </a>
             <a href="">
                 <li>A propos</li>
             </a>
-            <a href="/src/Account.php">
+            <a href="Account.php">
                 <li>Mon compte</li>
             </a>
             <?php
             if ($_SESSION["isAdmin"] == "yes") {
             ?>
-            <a href="/src/AdminPanel.php">
+            <a href="AdminPanel.php">
                 <li>Administration</li>
             </a>
             <?php
@@ -56,18 +56,18 @@
 <?php
 if ($_SESSION["logged_in"] != "yes") {
     ?>
-       <p style="position:absolute;top:5px;right:20px;margin-bottom:0">Bienvenue, <a href="javascript:toggleDisplayDiv()">connectez-vous</a> ou <a href="/src/Register.php">enregistrez vous.</a></p>
+       <p style="position:absolute;top:5px;right:20px;margin-bottom:0">Bienvenue, <a href="javascript:toggleDisplayDiv()">connectez-vous</a> ou <a href="Register.php">enregistrez vous.</a></p>
     <?php
 }
 else {
     ?>
         <p style="position:absolute;top:0;right:10px;margin-bottom: 0;">Bienvenue, <?php echo $_SESSION["username"]?>.</p>
-        <a href="/src/Logout.php" style="position:absolute;top:30px;right:15px;">Se déconnecter</a>
+        <a href="Logout.php" style="position:absolute;top:30px;right:15px;">Se déconnecter</a>
         <?php
 }
 if ($_SESSION["addToCart"]){
     ?>
-        <a href="/src/Cart.php">
+        <a href="Cart.php">
             <div style="position:absolute;top:70px;right:20px;">
                 <img src="/ressources/panierPlein.png">
                 <p class="numberOfItemsInCart"><?php echo count($_SESSION["addToCart"]) ?></p>
@@ -77,7 +77,7 @@ if ($_SESSION["addToCart"]){
 }
 else {
     ?>
-        <a href="/src/Cart.php">
+        <a href="Cart.php">
             <img style="position:absolute;top:70px;right:20px;" src="/ressources/panierVide.png">
         </a>
     <?php
@@ -90,7 +90,7 @@ if ($_SESSION["isAdmin"] == "yes") {
 ?>
 <div class="loginPopup" id="loginPopup" style="display: none">
         <input type="image" src="/ressources/close.png" onclick="toggleDisplayDiv()">
-        <form name="Form" action="/src/Connect.php" method="POST">
+        <form name="Form" action="Connect.php" method="POST">
             <div>
                 <label for="user">Identifiant:</label>
                 <input type="text" id="user" name="user" />

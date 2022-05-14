@@ -36,7 +36,7 @@ session_start();
                 <input type="password" id="password" name="password" />
                 <button type="submit">Connexion</button>
             </form>
-            <a style="display:block;margin-top:20px" href="/src/Register.php">Pas encore de compte ? Enregistrez vous.</a>
+            <a style="display:block;margin-top:20px" href="Register.php">Pas encore de compte ? Enregistrez vous.</a>
         </div>
     <?php
     } else {
@@ -103,7 +103,7 @@ session_start();
                 {
                     $n = $_SESSION["username"];
                     $p = $_POST["currentPassword"];
-                    $connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
+                    $connect = mysqli_connect("localhost", "u545314609_tanous", "f:0~*J5=Zo", "u545314609_eshop1");
                     $query = "SELECT username, password, userid FROM users WHERE `users`.`userid` = ".$_SESSION["userid"].";";
                     $runQuery = mysqli_query($connect, $query);
                     $dataArray = mysqli_fetch_row($runQuery);
@@ -180,7 +180,7 @@ session_start();
             </form>
         </div>
         <?php
-            $connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
+            $connect = mysqli_connect("localhost", "u545314609_tanous", "f:0~*J5=Zo", "u545314609_eshop1");
             $query = "SELECT * FROM `commandes` where userid=".$_SESSION["userid"].";";
             $runQueryCommands = mysqli_query($connect, $query);
         ?>
@@ -210,7 +210,7 @@ session_start();
                             $runQuery = mysqli_query($connect, $query);
                             $dataArray = mysqli_fetch_object($runQuery);
                             ?>
-                            <a href="/src/Produits.php?productItem=<?php echo $dataArray->ID ?>"><img src="<?php echo $dataArray->Image ?>"></a>
+                            <a href="Produits.php?productItem=<?php echo $dataArray->ID ?>"><img src="<?php echo $dataArray->Image ?>"></a>
                             <p>Prix: <?php echo $value[2]."€<br>Quantité: ". $value[1] ?></p>
                             </div>
                             <?php

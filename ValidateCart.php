@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/ValidateCart.css?php echo time(); ?>">
-    <link rel="stylesheet" href="/src/Cart.css?php echo time(); ?>">
+    <link rel="stylesheet" href="ValidateCart.css?php echo time(); ?>">
+    <link rel="stylesheet" href="Cart.css?php echo time(); ?>">
     <title>Valider le panier</title>
 </head>
 <body>
     <?php include "./NavMenu.php";
     include "./ValidateCartHeader.php";
-    $connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
+    $connect = mysqli_connect("localhost", "u545314609_tanous", "f:0~*J5=Zo", "u545314609_eshop1");
     ?>
     <?php if (!$_POST || $_POST["queryOKAddAddress"] || $_POST["queryOKAddCard"]){
         ?>
@@ -62,7 +62,7 @@
                     }
                     else{
                         if(!$_SESSION["logged_in"]){
-                            header("Location: /src/Account.php");
+                            header("Location: Account.php");
                         }
                         ?>
                             <p>Vous n'avez pas encore enregistré d'adresse.</p>
@@ -151,7 +151,7 @@
                     }
                     else{
                         if(!$_SESSION["logged_in"]){
-                            header("Location: /src/Account.php");
+                            header("Location: Account.php");
                         }
                         ?>
                             <p>Vous n'avez pas encore enregistré de carte de paiement.</p>
@@ -201,7 +201,7 @@
                 <?php
                 $totalPrice = 0;
                     if ($_SESSION["addToCart"]) {
-                        $connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
+                        $connect = mysqli_connect("localhost", "u545314609_tanous", "f:0~*J5=Zo", "u545314609_eshop1");
                         foreach ($_SESSION["addToCart"] as $item) {
                             $query = "SELECT * FROM `produit` WHERE ID = $item;";
                             $runQuery = mysqli_query($connect, $query);
@@ -280,8 +280,8 @@
                 </div>
                 <div>
                     <p>Numéro de commande: <?php echo $commandNumber->numeroCommande ?></p>
-                    <p>Vous pouvez consulter votre commande dans votre <a href="/src/Account.php#commandHistory">historique de commandes.</a></p>
-                    <p><a href="/src/Home.php">Retourner à l'accueil.</a></p>
+                    <p>Vous pouvez consulter votre commande dans votre <a href="Account.php#commandHistory">historique de commandes.</a></p>
+                    <p><a href="Home.php">Retourner à l'accueil.</a></p>
                 </div>
             </div>      
         </div>

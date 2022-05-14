@@ -1,6 +1,6 @@
 <?php
 
-$connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
+$connect = mysqli_connect("localhost", "u545314609_tanous", "f:0~*J5=Zo", "u545314609_eshop1");
     if ($_POST){
         $nom = $_POST["nom"];
         $prix = $_POST["prix"];

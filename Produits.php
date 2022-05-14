@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/src/Products.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="Products.css?v=<?php echo time(); ?>">
     <title>Produits</title>
 </head>
 
@@ -27,16 +27,16 @@
     <div class="leftPanel">
         <b>Catégories:</b>
         <ul>
-            <a href="/src/Produits.php?categorie=Bonnets"><li>Bonnets</li></a>
-            <a href="/src/Produits.php?categorie=Baskets"><li>Baskets</li></a>
-            <a href="/src/Produits.php?categorie=TShirts"><li>T-Shirts</li></a>
-            <a href="/src/Produits.php?categorie=Jeans"><li>Jeans</li></a>
-            <a href="/src/Produits.php?categorie=Manteaux"><li>Manteaux & Blousons</li></a>
+            <a href="Produits.php?categorie=Bonnets"><li>Bonnets</li></a>
+            <a href="Produits.php?categorie=Baskets"><li>Baskets</li></a>
+            <a href="Produits.php?categorie=TShirts"><li>T-Shirts</li></a>
+            <a href="Produits.php?categorie=Jeans"><li>Jeans</li></a>
+            <a href="Produits.php?categorie=Manteaux"><li>Manteaux & Blousons</li></a>
         </ul>
     </div>
     <?php } ?>
         <?php
-        $connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
+        $connect = mysqli_connect("localhost", "u545314609_tanous", "f:0~*J5=Zo", "u545314609_eshop1");
         if ($_GET["categorie"] == "Bonnets"){
             $query = "SELECT ID, Nom, Image, Soldes, Prix FROM produit WHERE Categorie = 1;";
         }
@@ -123,7 +123,7 @@
                             }
                             ?>
                             <div class="imageRelative">
-                                <a Style="color: inherit;" href="/src/Produits.php?productItem=<?php echo("$dataArray->ID")?>"><img class="itemPicture" src="<?php echo "$dataArray->Image" ?>"></a>
+                                <a Style="color: inherit;" href="Produits.php?productItem=<?php echo("$dataArray->ID")?>"><img class="itemPicture" src="<?php echo "$dataArray->Image" ?>"></a>
                                 <?php
                                 if ($_SESSION["isAdmin"] == "yes"){
                             ?>
@@ -139,7 +139,7 @@
                                 }
                                 if ($dataArray->Soldes != 0) { //Si il y a des soldes sur l'article
                                 ?>
-                                    <img class="soldePicture" src="../ressources/onSaleImage.png">
+                                    <img class="soldePicture" src="/ressources/onSaleImage.png">
                                 <?php
                                 }
                                 ?>

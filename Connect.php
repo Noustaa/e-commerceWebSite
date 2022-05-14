@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="/src/Style.css?v=<?php echo time(); ?>">
+        <link rel="stylesheet" href="Style.css?v=<?php echo time(); ?>">
     </head>
     <body>
         <?php
             $n = "$_POST[user]";
             $p = "$_POST[password]";
-            $connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
+            $connect = mysqli_connect("localhost", "u545314609_tanous", "f:0~*J5=Zo", "u545314609_eshop1");
             $query = "SELECT * FROM users;";
             $runQuery = mysqli_query($connect, $query);
             while (($dataArray = mysqli_fetch_object($runQuery)) != null){
