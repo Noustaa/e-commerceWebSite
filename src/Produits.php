@@ -35,7 +35,6 @@
         </ul>
     </div>
     <?php } ?>
-    <div class="productPanel">
         <?php
         $connect = mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1");
         if ($_GET["categorie"] == "Bonnets"){
@@ -61,38 +60,56 @@
             $runQuery = mysqli_query($connect, $query);
             $dataArray = mysqli_fetch_object($runQuery);
             ?>
-                <div>   
-                    <p>                 
-                    <?php
-                        if ($dataArray->Soldes != 0) { //Si il y a des soldes sur l'article
-                            $discountedPrice = $dataArray->Prix - (($dataArray->Prix * $dataArray->Soldes) / 100);
-                    ?>
-                        <div class="onSaleShowItem">
-                            <img class="showItem" src="<?php echo "$dataArray->Image" ?>">
-                            <img class="soldePictureItem" src="../ressources/onSaleImage.png">
+                <div class="productTitle">
+                    <H1 class="productTitleH1"><?php echo $dataArray->Nom ?></H1>
+                </div>
+                <div class="productWrapper">   
+                    <div class="productImage">
+                        <div>
+                            <?php
+                                if($dataArray->Soldes != 0){
+                                    ?>
+                                        <img class="soldePictureItemPage" src="/ressources/onSaleImage.png">
+                                    <?php
+                                }
+                            ?>
+                            <img class="productImageImg" src="<?php echo $dataArray->Image ?>">
                         </div>
-                            
-                            
-                            <p> <?php echo "$dataArray->Nom<br> Prix: <strike>{$dataArray->Prix}€</strike> ${discountedPrice}€<br> En soldes -$dataArray->Soldes%<br><br>$dataArray->Description" ?></p>
-                    <?php
-                        } else {
-                    ?>
-                            <img class="showItem" src="<?php echo "$dataArray->Image" ?>">
-                            <p><?php echo "$dataArray->Nom<br> Prix: {$dataArray->Prix}€<br><br>$dataArray->Description" ?></p>
-                    <?php
-                        }
-                    ?>
-                        <br>
-                        <br>
+                    </div>
+                    <div class="productDetails">
+                        <p>Description: <?php echo $dataArray->Description ?></p>
+                        <?php
+                                if($dataArray->Soldes != 0){
+                                    $discountedPrice = $dataArray->Prix - (($dataArray->Prix * $dataArray->Soldes) / 100);
+                                    ?>
+                                        <p>Prix: <strike><?php echo $dataArray->Prix ?>€</strike> -<?php echo $dataArray->Soldes."% => ". $discountedPrice ?>€</p>
+                                    <?php
+                                }
+                                else{
+                                    ?>
+                                        <p>Prix: <?php echo $dataArray->Prix ?>€</p>
+                                    <?php
+                                }
+                            ?>
                         <form method="post">
-                            <button type="submit" name="addToCart" value="<?php echo $dataArray->ID ?>">Ajouter au Panier</button>
+                            <button type="submit">
+                                <p>Ajouter au panier</p>
+                                <input type="hidden" name="addToCart" value="<?php echo $dataArray->ID ?>">
+                                <input type="image" src="/ressources/validateCart.png">
+                            </button>
                         </form>
-                    </p>
+                    </div>
+                </div>
+                <div>
+                        
                 </div>
             <?php
         }
         else {
             $runQuery = mysqli_query($connect, $query);
+            ?>
+            <div class="productPanel">
+            <?php
             while (true) {
             ?>
                 <div class="itemsRow">
@@ -162,6 +179,6 @@
             }
         }
         ?>
-    </div>
+            </div>
 </body>
 </html>

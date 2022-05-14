@@ -51,28 +51,13 @@ div.itemsRow{
 }
 .itemPicture{
 	max-width: 100%;
-    height: 400px;
+    max-height: 400px;
 }
 .soldePicture{
     position: absolute;
     top: -8px;
     right: -8px;
     width: 80px;
-}
-
-.onSaleShowItem{
-    position: relative;
-    float: left;
-}
-.showItem{
-    float: left;
-    max-height: 450px;
-}
-.soldePictureItem{
-    position: absolute;
-    width: 20%;
-    top: 0%;
-    right: -30px;
 }
 .item>a{
     display: block;
@@ -166,4 +151,81 @@ div.itemsRow{
     transform: scale(1.1);
     transition: transform 0.2s;
     background-color: red;
+}
+
+.productTitle{
+    display: inline-block;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    border-left: 5px solid black;
+    padding-left: 10px;
+    padding-right: 20px;
+}
+.productWrapper{
+    width: 100%;
+    display: flex;
+}
+.productImage{
+    width: 50%;
+}
+.productImage>div{
+    width: 70%;
+    float: right;
+    padding: 20px;
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    border-top-left-radius: 5%;
+    border-bottom-left-radius: 5%;
+    position: relative;
+}
+.soldePictureItemPage{
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 20%;
+}
+.productImageImg{
+    max-width: 100%;
+}
+.productDetails{
+    width: 100%;
+    font-size: larger;
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    border-right: 5px solid black;
+    position: relative;
+    padding-left: 10px;
+}
+.productDetails>p{
+    width: 70%;
+}
+.productDetails>form{
+    width: 40%;
+    position: absolute;
+    bottom: 15%;
+}
+.productDetails>form>button{
+    width: 70%;
+    transition-duration: 0.2s;
+    display: flex;
+    margin: 0 auto;
+}
+.productDetails>form>button:hover{
+    transform: scale(1.1);
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+.productDetails>form>button>p{
+    margin: 0;
+    width: 80%;
+    line-height:50px;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: bold;
+}
+.productDetails>form>button>input{
+    max-height: 50px;
+    max-width:20%;
+    padding-bottom: 5px;
 }
