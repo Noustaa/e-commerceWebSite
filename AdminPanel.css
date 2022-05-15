@@ -112,3 +112,50 @@
     margin-right: 40px;
     padding-top: 65px;
 }
+.addAdmin{
+    text-align: center;
+    margin: 0 auto;
+    width: 30%;
+}
+.addAdmin>form{
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+.addAdmin label{
+    float: left;
+    font-size: larger;
+    margin-right: 40px;
+}
+.addAdmin input{
+    float: right;
+    width: 180px;
+    text-align: center;
+}
+.addAdmin>form>p{
+   display: table-row;
+   height: 25px;
+   margin: 0 auto;
+}
+.radioSexe{
+    float: right;
+    width: 180px;
+}
+.radioSexe input[type="radio"]{
+    width: fit-content;
+    float: none;
+    margin: 0;
+}
+.radioSexe label[for="sexeF"]{
+    float: none;
+    margin: 0;
+}
+.radioSexe label[for="sexeM"]{
+    float: none;
+    margin: 0;
+}
+.addAdmin input[type="submit"]{
+    float: none;
+    margin-top: 10px;
+}

@@ -29,7 +29,7 @@
         <fieldset>
             <legend>Inscription</legend>
             <span class="whitePanel"></span>
-            <form action="RegisterUser.php" method="post">
+            <form action="AddUser.php" method="post">
                 <?php
                     if (isset($_POST["registerQueryError"])){
                         ?>
@@ -76,6 +76,7 @@
                     </span>
                 </p>
                 <p>
+                    <input type="hidden" name="role" value="user">
                     <input type="submit" value="Valider l'inscription">
                 </p>
             </form>
@@ -94,7 +95,6 @@
                 </script>
             <?php
         }
-    
     ?>
 </body>
 

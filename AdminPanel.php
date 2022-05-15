@@ -32,7 +32,7 @@
                                     <form action="GetItem.php" method="post">
                                         <p>
                                             <label for="productID">ID du produit: </label>
-                                            <input type="text" name="productID" id="productID">
+                                            <input type="text" name="productID" id="productID" required>
                                         </p>
                                         <p>
                                             <input type="submit" value="Modifier">
@@ -49,31 +49,31 @@
                                         </p>
                                         <p>
                                             <label for="nom">Nom: </label>
-                                            <input type="text" name="nom" id="nom">
+                                            <input type="text" name="nom" id="nom" required>
                                         </p>
                                         <p>
                                             <label for="prix">Prix:(Euro) </label>
-                                            <input type="text" name="prix" id="prix">
+                                            <input type="text" name="prix" id="prix" required>
                                         </p>
                                         <p>
                                             <label for="soldes">Soldes:(%) </label>
-                                            <input type="text" name="soldes" id="soldes">
+                                            <input type="text" name="soldes" id="soldes" required>
                                         </p>
                                         <p>
                                             <label for="categorie">Categorie: </label>
-                                            <input type="text" name="categorie" id="categorie">
+                                            <input type="text" name="categorie" id="categorie" required>
                                         </p>
                                         <p>
                                             <label for="stock">Stock: </label>
-                                            <input type="text" name="stock" id="stock">
+                                            <input type="text" name="stock" id="stock" required>
                                         </p>
                                         <p>
                                             <label for="description">Description: </label>
-                                            <textarea name="description" id="description"></textarea>
+                                            <textarea name="description" id="description" required></textarea>
                                         </p>
                                         <p>
                                             <label for="image">Image (url): </label>
-                                            <textarea name="image" id="image"></textarea>
+                                            <textarea name="image" id="image" required></textarea>
                                         </p>
                                         <p>
                                             <a href="AdminPanel.php"><input type="button" value="Annuler"></a>
@@ -108,7 +108,7 @@
                             <form action="DeleteItem.php" method="post">
                                 <p>
                                     <label for="productID">ID du produit: </label>
-                                    <input type="text" name="productID" id="productIDDelete">
+                                    <input type="text" name="productID" id="productIDDelete" required>
                                 </p>
                                 <p>
                                     <input type="submit" value="Supprimer" name="deleteItem" id="deleteItem">
@@ -136,31 +136,31 @@
                         <form action="AddItem.php" method="post">
                             <p>
                                 <label for="nom">Nom: </label>
-                                <input type="text" name="nom" id="nomAdd">
+                                <input type="text" name="nom" id="nomAdd" required>
                             </p>
                             <p>
                                 <label for="prix">Prix:(Euro) </label>
-                                <input type="text" name="prix" id="prixAdd">
+                                <input type="text" name="prix" id="prixAdd" required>
                             </p>
                             <p>
                                 <label for="soldes">Soldes:(%) </label>
-                                <input type="text" name="soldes" id="soldesAdd">
+                                <input type="text" name="soldes" id="soldesAdd" required>
                             </p>
                             <p>
                                 <label for="categorie">Categorie: </label>
-                                <input type="text" name="categorie" id="categorieAdd">
+                                <input type="text" name="categorie" id="categorieAdd" required>
                             </p>
                             <p>
                                 <label for="stock">Stock: </label>
-                                <input type="text" name="stock" id="stockAdd">
+                                <input type="text" name="stock" id="stockAdd" required>
                             </p>
                             <p>
                                 <label for="description">Description: </label>
-                                <textarea name="description" id="descriptionAdd"></textarea>
+                                <textarea name="description" id="descriptionAdd" required></textarea>
                             </p>
                             <p>
                                 <label for="image">Image (url): </label>
-                                <textarea name="image" id="imageAdd"></textarea>
+                                <textarea name="image" id="imageAdd" required></textarea>
                             </p>
                             <p>
                                 <input type="submit" value="Valider">
@@ -177,7 +177,94 @@
                         </script>
                     </fieldset>
                     </div>
-                <?php
+
+                    <script>
+                        function checkPasswordsMatchs() {
+                            var password1 = document.getElementById('password1');
+                            var password2 = document.getElementById('password2');
+                            if (password1.value != password2.value) {
+                                password2.setCustomValidity('Les mots de passe saisis ne sont pas identiques.');
+                            } else {
+                                // input is valid -- reset the error message
+                                password2.setCustomValidity('');
+                            }
+                        }
+                    </script>
+
+                    <div style="position: relative; text-align:center;margin-top:20px;">
+                    <fieldset class="addAdmin">
+                        <legend>Ajouter un administrateur</legend>
+                        <a name="addAdmin"></a>
+                        <?php
+                            if (isset($_POST["registerQueryOK"])){
+                                ?>
+                                    <p style="font-size: smaller;color:green; margin:0;margin-bottom:5px">Le compte administrateur a bien été créé.</p>
+                                <?php
+                            }
+                            if (isset($_POST["registerQueryError"])){
+                                ?>
+                                    <p style="font-size: smaller;color:red; margin:0;margin-bottom:5px">Ce nom d'utilisateur est déjà pris. Le compte n'a pas été créé.</p>
+                                <?php
+                            }
+                        ?>
+                        <form action="AddUser.php" method="post">
+                        <p>
+                            <label for="username">Nom d'utilisateur:</label>
+                            <input type="text" name="username" id="username" required>
+                        </p>
+                        <p>
+                            <label for="password">Mot de passe:</label>
+                            <input type="password" name="password1" id="password1" onkeyup="checkPasswordsMatchs()" required>
+                        </p>
+                        <p>
+                            <label for="rePassword">Confirmer le mot de passe:</label>
+                            <input type="password" name="password2" id="password2" onkeyup="checkPasswordsMatchs()" required>
+                        </p>
+                        <p>
+                            <label for="firstName">Prénom:</label>
+                            <input type="text" name="firstName" id="firstName" required>
+                        </p>
+                        <p>
+                            <label for="lastName">Nom:</label>
+                            <input type="text" name="lastName" id="lastName" required>
+                        </p>
+                        <p>
+                            <label for="email">Adresse email:</label>
+                            <input type="text" name="email" id="email" required>
+                        </p>
+                        <p>
+                            <label for="birthdate">Date de naissance: </label>
+                            <input type="date" name="birthdate" id="birthdate">
+                        </p>
+                        <p>
+                            <label for="sexe">Genre: </label>
+                            <span class="radioSexe">
+                                <input type="radio" id="sexeM" name="sexe" value="M">
+                                <label for="sexeM" style="font-size: smaller;">Masculin</label>
+                                <input type="radio" id="sexeF" name="sexe" value="F">
+                                <label for="sexeF" style="font-size: smaller;">Féminin</label>
+                                <input type="radio" id="sexeN" name="sexe" value="N" checked hidden>
+                            </span>
+                        </p>
+                        <p>
+                            <input type="hidden" name="role" value="administrator">
+                            <input type="submit" value="Valider">
+                        </p>
+                        </form>
+                    </fieldset>
+                    </div>
+                    <?php 
+                        if (isset($_POST["registerQueryError"]))
+                        {
+                            ?>
+                                <script>
+                                    document.getElementById("username").value = "<?php echo $_POST['username']?>";
+                                    document.getElementById("firstName").value = "<?php echo $_POST['firstName']?>";
+                                    document.getElementById("lastName").value = "<?php echo $_POST['lastName']?>";
+                                    document.getElementById("email").value = "<?php echo $_POST['email']?>";
+                                </script>
+                            <?php
+                        }
             }
             else {
                 echo "You do not have privilege to see this page.";
