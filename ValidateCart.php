@@ -192,7 +192,7 @@
     elseif ($_POST["selectedAddressValidate"] && $_POST["selectedCard"]){
         ?>
         <div class="mainWrapper">
-            <H1>Commande validé !</H1>
+            <H1>Commande validée !</H1>
             <p>Nous vous remercions pour votre commande.</p>
             <p>Voici un récapitulatif:</p>
         </div>

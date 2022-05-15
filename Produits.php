@@ -95,13 +95,13 @@
                             <button type="submit">
                                 <p>Ajouter au panier</p>
                                 <input type="hidden" name="addToCart" value="<?php echo $dataArray->ID ?>">
-                                <input type="image" src="/ressources/validateCart.png">
+                                <input type="image" src="/ressources/addToCart.png">
                             </button>
                         </form>
                     </div>
                 </div>
                 <div>
-                <p style="text-align: center; font-size: larger;">Ces articles pourraient vous intéresser:</p>
+                <p style="text-align: center; font-size: larger;text-decoration: underline;font-weight: bolder;">Ces articles pourraient vous intéresser:</p>
                         <div class="interestWrapper">
                             <?php 
                             $query = "SELECT * FROM `produit` WHERE Categorie = $dataArray->Categorie AND ID != $dataArray->ID ORDER BY rand();";
@@ -109,11 +109,38 @@
                                 for ($i=0; $i < 5; $i++) { 
                                     $dataArray = mysqli_fetch_object($runQuery);
                                     ?>
-                                        <div class="interest">
-                                            <a href="Produits.php?productItem=<?php echo $dataArray->ID ?>"><img src="<?php echo $dataArray->Image ?>"></a>
-                                            <p><?php echo $dataArray->Nom ?></p>
-                                            <p><?php echo $dataArray->Prix ?>€</p>
-                                        </div>
+                                        <a href="Produits.php?productItem=<?php echo $dataArray->ID ?>">
+                                            <div class="interest">
+                                                <div class="interestImage">
+                                                    <div>
+                                                        <?php
+                                                        if($dataArray->Soldes != 0){
+                                                            ?>
+                                                                <img class="interestSoldePictureItemPage" src="/ressources/onSaleImage.png">     
+                                                            <?php
+                                                        }
+                                                        ?>
+                                                        <img class="interestProductImage" src="<?php echo $dataArray->Image ?>">
+                                                    </div>
+                                                </div>
+                                                <div class="interestItemName">
+                                                    <p style="color: black;text-decoration: underline;font-weight: bolder;"><?php echo $dataArray->Nom ?></p>
+                                                </div>
+                                                <?php
+                                                    if($dataArray->Soldes != 0){
+                                                        $discountedPrice = $dataArray->Prix - (($dataArray->Prix * $dataArray->Soldes) / 100);
+                                                        ?>
+                                                            <p style="color: black;">Prix: <strike><?php echo $dataArray->Prix ?>€</strike> -<?php echo $dataArray->Soldes."% => ". $discountedPrice ?>€</p>
+                                                        <?php
+                                                    }
+                                                    else{
+                                                        ?>
+                                                            <p style="color: black;">Prix: <?php echo $dataArray->Prix ?>€</p>
+                                                        <?php
+                                                    }
+                                                ?>
+                                            </div>
+                                        </a>
                                     <?php 
                                 }
                             ?>
