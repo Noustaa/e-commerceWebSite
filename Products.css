@@ -217,23 +217,24 @@ div.itemsRow{
 .productDetails>p{
     width: 70%;
 }
-.productDetails>form{
+.addToCartFormShowProduct{
     width: 40%;
     position: absolute;
     bottom: 15%;
+    left: 0;
 }
-.productDetails>form>button{
+.addToCartFormShowProduct>button{
     width: 70%;
     transition-duration: 0.2s;
     display: flex;
     margin: 0 auto;
 }
-.productDetails>form>button:hover{
+.addToCartFormShowProduct>button:hover{
     transform: scale(1.1);
     transition-duration: 0.2s;
     cursor: pointer;
 }
-.productDetails>form>button>p{
+.addToCartFormShowProduct>button>p{
     margin: 0;
     width: 80%;
     line-height:50px;
@@ -241,10 +242,61 @@ div.itemsRow{
     font-size: 20px;
     font-weight: bold;
 }
-.productDetails>form>button>input{
+.addToCartFormShowProduct>button>input{
     max-height: 50px;
     max-width:20%;
     padding-bottom: 5px;
+}
+.editItemFormShowProduct{
+    width: 40%;
+    position: absolute;
+    bottom: 15%;
+    left: 40%;
+}
+.editItemFormShowProduct>input[type="image"]{
+    position: relative;
+    background-color: rgb(239, 239, 239);
+    width: 9%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    transition-duration: 0.2s;
+}
+.editItemFormShowProduct>input[type="image"]:hover{
+    transform: scale(0.9);
+    transition: transform 0.2s;
+    background-color: #4CAF50;
+}
+.editItemFormShowProduct>input[type="image"]:active{
+    transform: scale(1.1);
+    transition: transform 0.2s;
+    background-color: #4CAF50;
+}
+.deleteItemFormShowProduct{
+    width: 40%;
+    position: absolute;
+    bottom: 15%;
+    left: 45%;
+}
+.deleteItemFormShowProduct>input[type="image"]{
+    position: relative;
+    background-color: rgb(239, 239, 239);
+    width: 9%;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 5px;
+    transition-duration: 0.2s;
+}
+.deleteItemFormShowProduct>input[type="image"]:hover{
+    transform: scale(0.9);
+    transition: transform 0.2s;
+    background-image: none;
+    background-color: red;
+}
+.deleteItemFormShowProduct>input[type="image"]:active{
+    transform: scale(1.1);
+    transition: transform 0.2s;
+    background-color: red;
 }
 .interestWrapper{
     display: flex;
