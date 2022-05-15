@@ -116,6 +116,17 @@
                             </form>
                         </fieldset>
                     </div>
+                    <script>
+                        function checkCategorie() {
+                            var categorie = document.getElementById('categorieAdd');
+                            if (categorie.value < 1 || categorie.value > 5) {
+                                categorie.setCustomValidity('Veuillez entrer une valeur comprise entre 1 et 5.');
+                            } else {
+                                // input is valid -- reset the error message
+                                categorie.setCustomValidity('');
+                            }
+                        }
+                    </script>
                     <div style="position: relative; text-align:center;margin-top:20px;">
                     <fieldset class="addItem">
                         <legend>Ajouter un produit</legend>
@@ -148,7 +159,7 @@
                             </p>
                             <p>
                                 <label for="categorie">Categorie: </label>
-                                <input type="text" name="categorie" id="categorieAdd" required>
+                                <input type="text" name="categorie" id="categorieAdd" onkeyup="checkCategorie()" required>
                             </p>
                             <p>
                                 <label for="stock">Stock: </label>

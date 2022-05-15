@@ -6,6 +6,15 @@ a:visited,a{
 	color: blue;
 }
 
+.scrolltop {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	left: 30px;
+	z-index: 99;
+	width: 2%;
+}
+
 .delPuces{
     list-style-type: none;
 }

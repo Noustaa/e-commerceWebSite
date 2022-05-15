@@ -89,18 +89,42 @@ if ($_SESSION["isAdmin"] == "yes") {
 }
 ?>
 <div class="loginPopup" id="loginPopup" style="display: none">
-        <input type="image" src="/ressources/close.png" onclick="toggleDisplayDiv()">
-        <form name="Form" action="Connect.php" method="POST">
-            <div>
-                <label for="user">Identifiant:</label>
-                <input type="text" id="user" name="user" />
-            </div>
-            <div>
-                <label for="password">Mot de passe:</label>
-                <input type="password" id="password" name="password" />
-            </div>
-            <div>
-                <button type="submit">Connexion</button>
-            </div>
-        </form>
-    </div>
+    <input type="image" src="/ressources/close.png" onclick="toggleDisplayDiv()">
+    <form name="Form" action="Connect.php" method="POST">
+        <div>
+            <label for="user">Identifiant:</label>
+            <input type="text" id="user" name="user" />
+        </div>
+        <div>
+            <label for="password">Mot de passe:</label>
+            <input type="password" id="password" name="password" />
+        </div>
+        <div>
+            <button type="submit">Connexion</button>
+        </div>
+    </form>
+</div>
+
+
+
+<input type="image" src="/ressources/scrolltop.png" onclick="topFunction()" class="scrolltop" id="scrolltop">
+
+<script>
+scrolltop = document.getElementById("scrolltop");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    scrolltop.style.display = "block";
+  } else {
+    scrolltop.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+</script>
