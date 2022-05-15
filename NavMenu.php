@@ -13,7 +13,9 @@
     }
 </script>
 
+<link href="https://fonts.googleapis.com/css?family=Lora:400,700%7CMontserrat:300" rel="stylesheet">
 <link rel="stylesheet" href="Style.css?v=<?php echo time(); ?>">
+
 
 <div>
     <hr style="width:100%" , size="6" , color=black>
@@ -32,7 +34,7 @@
             <a href="Produits.php">
                 <li>Produits</li>
             </a>
-            <a href="">
+            <a href="Propos.php">
                 <li>A propos</li>
             </a>
             <a href="Account.php">
