@@ -1,0 +1,116 @@
+.mainWrapper{
+    margin-left: 5%;
+}
+.secondWrapper{
+    display: inline-flex;
+    width: 100%;
+}
+.displayItemWrapper{
+    width: 35%;
+}
+.displayItem{
+    border: 1px solid black;
+    width: 100%;
+    margin-bottom: 20px;
+    transition-duration: 0.2s;
+}
+.displayItem:hover{
+    background-color: gainsboro;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition-duration: 0.2s;
+}
+.displayItemWrapper>input[type=radio]:checked + .radioValidator>div{
+    background-color: grey;
+}
+.displayItem>p{
+    margin-left: 20px;
+}
+.formValidate{
+    width: 20%;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+.formValidate>input{
+    padding: 20px;
+}
+.recapWrapper{
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+}
+.recapWrapper>div{
+    text-align: center;
+    margin: 0 auto;
+    width: 48%;
+}
+.displayItemValidate{
+    border: 1px solid black;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.addNewAddress{
+    text-align: center;
+    margin: 0 auto;
+    width: 30%;
+}
+.addNewAddress>form{
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+.addNewAddress label{
+    float: left;
+    font-size: larger;
+    margin-right: 40px;
+}
+.addNewAddress input{
+    float: right;
+    width: 180px;
+    text-align: center;
+}
+.addNewAddress>form>p{
+   display: table-row;
+   height: 25px;
+   margin: 0 auto;
+}
+.addNewAddress input[type="submit"],input[type="button"]{
+    float: none;
+    margin-top: 10px;
+}
+
+.addNewCard{
+    text-align: center;
+    margin: 0 auto;
+    width: 30%;
+}
+.addNewCard>form{
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+.addNewCard label{
+    float: left;
+    font-size: larger;
+    margin-right: 40px;
+}
+.addNewCard input{
+    float: right;
+    width: 180px;
+    text-align: center;
+}
+.addNewCard input[type="date"]{
+    width: 183px;
+}
+.addNewCard>form>p{
+   display: table-row;
+   height: 25px;
+   margin: 0 auto;
+}
+.addNewCard input[type="submit"],input[type="button"]{
+    float: none;
+    margin-top: 10px;
+}

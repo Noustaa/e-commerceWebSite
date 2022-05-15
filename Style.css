@@ -1,20 +1,30 @@
+body{
+	font-family: 'Montserrat', serif;
+}
+
+a:visited,a{
+	color: blue;
+}
+
+.scrolltop {
+	display: none;
+	position: fixed;
+	bottom: 20px;
+	left: 30px;
+	z-index: 99;
+	width: 2%;
+}
+
 .delPuces{
     list-style-type: none;
 }
-
-.menuStyle>li{
-    font-size: 30px;
-    margin-right: 15px;
-    display: inline-flex;
-    border-top: 5px solid blue;
-    background-color: linear-gradient(right, blue , green);
+.delPuces>a{
+	text-decoration: none;
 }
-
-.menuStyle li:hover{
-    border-top: 5px solid red;
-    background-color: rgba(255, 0, 0, 0.5);
+.navBarUl{
+	padding-inline-start: 0;
+	margin: 0;
 }
-
 .menuButtonStyle li{background-image: linear-gradient(to right, #232526 0%, #414345  51%, #232526  100%)}
 .menuButtonStyle li{
    margin: 10px;
@@ -35,75 +45,166 @@
    text-decoration: none;
  }
 
-.test>img{
-	display: inline-flex;
-	flex-shrink: 1;
-	padding: 8px;
-    width: 23%;
-	height: auto;
- }
-.test2>img{
-	height: 300px;
+.numberOfItemsInCart{
+	background-color:black;
+	color: white;
+	border-radius:50%;
+	width: 19px;
+    height: 19px;
+	border: 2px solid grey;
+	padding: 2px;
+	text-align: center;
+	float:right;
+	position:absolute;
+	right: 5px;
+	bottom: 0px;
+	margin: 0;
 }
 
- @keyframes AutoSlide {
-	0% {
-		left: 0px; /*1ère image*/
-	}
-	15% {
-		left: 0px; /*idem pour attente*/
-	}
-	35% {
-		left: -450px; /*2ème image*/
-	}
-	50% {
-		left: -450px; /*idem pour attente*/
-	}
-	70% {
-		left: -900px; /*3ème image*/
-	}
-	85% {
-		left: -900px; /*idem pour attente*/
-	}
-	100% {
-		left: 0px; /*1ère image*/
-	}
+.loginDiv{
+	text-align: center;
+	display: list-item ;
+	padding-top: 20px;
 }
 
-@keyframes AutoSlide {
-	0%, 15%, 100% {
-		left: 0px; /*1ère image*/
-	}
-	35%, 50% {
-		left: -450px; /*2ème image*/
-	}
-	70%, 85% {
-		left: -900px; /*3ème image*/
-	}
+.loginPopup{
+    position: absolute;
+    top: 50px;
+    right: 15px;
+    background-color: white;
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 30px;
+    border: 1px solid black;
+}
+.loginPopup>form{
+    display: inline-block;
+}
+.loginPopup>form>div>input{
+    float: right;
+}
+.loginPopup label{
+    float: left;
+}
+.loginPopup button{
+    position: absolute;
+    bottom: 5px;
+    left: 37%;
+}
+.loginPopup>input{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 20px;
+}
+.adminFlag{
+	position:absolute;
+	top:10px;
+	left:20px;
+	color:white;
+	border: 1px red solid;
+	border-radius: 10px;
+	background-color: red;
+	padding: 3px;
 }
 
-#slideshow {
+
+.mainWrapper{
+	width: 100%;
+	margin-top: 20px;
+}
+.firstSlideDiv{
+	width: 70%;
 	position: relative;
-	width: 450px;
-	height: 450px;
-	margin:  20px auto;
+}
+.firstSlideDiv>a{
+	display: inline-block;
+	position: relative;
+	left: -20%;
+	transition-duration: 0.5s;
+}
+.firstSlideDiv>a:hover{
+	transform : translate(15%);
+	transition-duration: 0.5s;
+}
+.firstSlideDiv>a>img{
+	width: 100%;
+	border-radius:20px;
+}
+.firstSlideDiv>a>h1{
+	color: white;
+	font-weight: bolder;
+	font-size: 50px;
+	-webkit-text-stroke-color: white;
+	-webkit-text-stroke-width: 3.00px; 
+	position: absolute;
+	bottom: 0;
+	left: 20%;
+}
+
+.secondSlideDivWrapper{
+	width: 100%;
+	height: 414px;
+	position: relative;
 	overflow: hidden;
 }
-#sContent li {
-	display: inline;
+.secondSlideDiv{
+	width: 70%;
+	position: absolute;
+	right: 0;
+}
+.secondSlideDiv>a{
+	display: inline-block;
+	position: relative;
+	right: -20%;
+	transition-duration: 0.5s;
+}
+.secondSlideDiv>a:hover{
+	transform : translate(-15%);
+	transition-duration: 0.5s;
+}
+.secondSlideDiv>a>img{
+	width: 100%;
+	position: relative;
+	border-radius:20px;
+}
+.secondSlideDiv>a>h1{
+	color: white;
+	font-weight: bolder;
+	font-size: 50px;
+	-webkit-text-stroke-color: white;
+	-webkit-text-stroke-width: 3.00px; 
+	position: absolute;
+	bottom: 0;
+	right: 21%;
 }
 
-#sContent {
+.thirdSlideDiv{
+	width: 70%;
+	position: relative;
+}
+.thirdSlideDiv>a{
+	display: inline-block;
+	position: relative;
+	left: -20%;
+	transition-duration: 0.5s;
+}
+.thirdSlideDiv>a:hover{
+	transform : translate(15%);
+	transition-duration: 0.5s;
+}
+.thirdSlideDiv>a>img{
+	width: 100%;
+	border-radius:20px;
+}
+.thirdSlideDiv>a>h1{
+	color: white;
+	font-weight: bolder;
+	font-size: 50px;
+	-webkit-text-stroke-color: white;
+	-webkit-text-stroke-width: 3.00px; 
 	position: absolute;
-	top: 0;
-	left: 0;
-	width: 1350px;
-	margin: 0;            
-	padding: 0;
-	
-	/*CSS3 keyframes animation*/
-	animation-name: AutoSlide;
-	animation-duration: 10s;
-	animation-iteration-count: infinite;
-	animation-timing-function: ease-in-out;
+	bottom: 0;
+	left: 20%;
 }

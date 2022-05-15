@@ -1,0 +1,161 @@
+.editProduct{
+    text-align: center;
+    margin: 0 auto;
+    width: 30%;
+}
+.editProduct>form{
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+.editProduct label{
+    float: left;
+    font-size: larger;
+    margin-right: 40px;
+}
+.editProduct label[for="image"],label[for="description"]{
+    float: left;
+    font-size: larger;
+    margin-right: 40px;
+    padding-top: 65px;
+}
+.editProduct input{
+    float: right;
+    width: 180px;
+    text-align: center;
+}
+.editProduct textarea{
+    float: right;
+    width: 182px;
+    height: 150px;
+    margin-bottom: 5px;
+}
+.editProduct>form>p{
+   display: table-row;
+   height: 25px;
+   margin: 0 auto;
+}
+.editProduct input[type="submit"],input[type="button"]{
+    float: none;
+    margin-top: 10px;
+}
+.deleteItem{
+    text-align: center;
+    margin: 0 auto;
+    width: 30%;
+}
+.deleteItem>form{
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+.deleteItem label{
+    float: left;
+    font-size: larger;
+    margin-right: 40px;
+}
+.deleteItem input{
+    float: right;
+    width: 180px;
+    text-align: center;
+}
+.deleteItem>form>p{
+   display: table-row;
+   height: 25px;
+   margin: 0 auto;
+}
+.deleteItem input[type="submit"],input[type="button"]{
+    float: none;
+    margin-top: 10px;
+}
+.addItem{
+    text-align: center;
+    margin: 0 auto;
+    width: 30%;
+}
+.addItem>form{
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+.addItem label{
+    float: left;
+    font-size: larger;
+    margin-right: 40px;
+}
+.addItem input{
+    float: right;
+    width: 180px;
+    text-align: center;
+}
+.addItem>form>p{
+   display: table-row;
+   height: 25px;
+   margin: 0 auto;
+}
+.addItem textarea{
+    float: right;
+    width: 182px;
+    height: 150px;
+    margin-bottom: 5px;
+}
+.addItem input[type="submit"],input[type="button"]{
+    float: none;
+    margin-top: 10px;
+}
+.addItem label[for="image"],label[for="description"]{
+    float: left;
+    font-size: larger;
+    margin-right: 40px;
+    padding-top: 65px;
+}
+.addAdmin{
+    text-align: center;
+    margin: 0 auto;
+    width: 30%;
+}
+.addAdmin>form{
+    display: block;
+    text-align: center;
+    width: fit-content;
+    margin: 0 auto;
+}
+.addAdmin label{
+    float: left;
+    font-size: larger;
+    margin-right: 40px;
+}
+.addAdmin input{
+    float: right;
+    width: 180px;
+    text-align: center;
+}
+.addAdmin>form>p{
+   display: table-row;
+   height: 25px;
+   margin: 0 auto;
+}
+.radioSexe{
+    float: right;
+    width: 180px;
+}
+.radioSexe input[type="radio"]{
+    width: fit-content;
+    float: none;
+    margin: 0;
+}
+.radioSexe label[for="sexeF"]{
+    float: none;
+    margin: 0;
+}
+.radioSexe label[for="sexeM"]{
+    float: none;
+    margin: 0;
+}
+.addAdmin input[type="submit"]{
+    float: none;
+    margin-top: 10px;
+}

@@ -1,0 +1,90 @@
+.myAccount{
+    text-align: center;
+    margin: 0 auto;
+    border: 1px solid black;
+    width: 40%;
+    margin-bottom: 30px;
+}
+
+.myAccount>div{
+    display: inline-flex;
+}
+
+.usernameDetails>p{
+    margin: 0;
+    padding-right: 10px;
+}
+.usernameDetails>form>input{
+    font-size: 3mm;
+}
+.passwordDetails>p{
+    margin: 0;
+    padding-right: 10px;
+}
+.passwordDetails>form>input{
+    font-size: 3mm;
+}
+.firstnameDetails>p{
+    margin: 0;
+    padding-right: 10px;
+}
+.firstnameDetails>form>input{
+    font-size: 3mm;
+}
+.lastnameDetails>p{
+    margin: 0;
+    padding-right: 10px;
+}
+.lastnameDetails>form>input{
+    font-size: 3mm;
+}
+.emailDetails>p{
+    margin: 0;
+    padding-right: 10px;
+}
+.emailDetails>form>input{
+    font-size: 3mm;
+}
+.birthdateDetails>p{
+    margin: 0;
+    padding-right: 10px;
+}
+.birthdateDetails>form>input{
+    font-size: 3mm;
+}
+.genderDetails>p{
+    margin: 0;
+    padding-right: 10px;
+}
+.genderDetails>form>input{
+    font-size: 3mm;
+}
+.commandHistoryWrapper{
+    text-align: center;
+    margin: 0 auto;
+    width: 40%;
+}
+.singleCommandHistory{
+    display: flex;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    padding: 5px
+}
+.singleCommandHistoryRow{
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: center;
+}
+.singleCommandHistoryRow>a{
+    display: contents;
+}
+.singleCommandHistoryRow>a>img{
+    max-width: 20%;
+    margin-right: 10px;
+}
+.itemsWrapper{
+    width: 50%;
+}
+.detailsWrapper{
+    width: 50%;
+}

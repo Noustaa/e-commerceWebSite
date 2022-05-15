@@ -1,0 +1,81 @@
+.itemDiv{
+    margin-left:7%; 
+    border-left:5px solid black;
+    padding-left:20px;   
+}
+.itemDiv>div{
+    display:flex;
+}
+.itemDiv>div{
+    display: inline-block;   
+}
+.lineWrapper{
+    width: 40%;
+    margin-right: 50px;
+}
+.itemLine{
+    width: 100%;
+    position: relative;
+    height: 150px;
+    display: inline-flex;
+}
+.imageWrapper{
+    width: 20%;
+    height: 100%;
+    margin-right: 20px;
+}
+.imageWrapper>img{
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;  
+    max-height: 135px;
+}
+.textWrapper{
+    width: 70%;
+}
+.textWrapper>p{
+    margin: 0;
+}
+.lineSeparator{
+    position:absolute;
+    bottom: 0;
+    width:100%;
+}
+.detailsDiv{
+    background-color: gainsboro;
+    position: absolute;
+    width: 20%;
+    text-align: center;
+}
+.detailsDiv>p{
+    padding-top: 25px;
+    margin:0;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.detailsDiv>form{
+    width: 100%;
+}
+.detailsDiv>form>button{
+    width: 70%;
+    transition-duration: 0.2s;
+    display: flex;
+    margin: 0 auto;
+}
+.detailsDiv>form>button:hover{
+    transform: scale(1.1);
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+.detailsDiv>form>button>p{
+    margin: 0;
+    width: 80%;
+    line-height:50px;
+    vertical-align: middle;
+    font-size: 20px;
+    font-weight: bold;
+}
+.detailsDiv>form>button>input{
+    max-height: 50px;
+    max-width:20%
+}
