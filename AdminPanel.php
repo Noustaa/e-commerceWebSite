@@ -72,7 +72,7 @@
                                             <textarea name="description" id="description"></textarea>
                                         </p>
                                         <p>
-                                            <label for="image">Image: </label>
+                                            <label for="image">Image (url): </label>
                                             <textarea name="image" id="image"></textarea>
                                         </p>
                                         <p>

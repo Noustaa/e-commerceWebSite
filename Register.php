@@ -69,9 +69,9 @@
                     <label for="sexe">Sexe: </label>
                     <span class="radioSexe">
                         <input type="radio" id="sexeM" name="sexe" value="M">
-                        <label for="sexeM">Masculin</label>
+                        <label for="sexeM" style="font-size: smaller;">Masculin</label>
                         <input type="radio" id="sexeF" name="sexe" value="F">
-                        <label for="sexeF">Féminin</label>
+                        <label for="sexeF" style="font-size: smaller;">Féminin</label>
                         <input type="radio" id="sexeN" name="sexe" value="N" checked hidden>
                     </span>
                 </p>

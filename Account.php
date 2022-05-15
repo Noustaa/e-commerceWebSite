@@ -57,7 +57,7 @@ session_start();
                     <?php
                 } 
                 elseif ($_POST["validateUsername"]) {
-                    if (mysqli_query(mysqli_connect("localhost", "noustaa", "ssss", "u545314609_eshop1"), "UPDATE `users` SET `username` = '" . $_POST["modifiedUsername"] . "' WHERE `users`.`userid` = " . $_SESSION["userid"] . ";")) {
+                    if (mysqli_query(mysqli_connect("localhost", "u545314609_tanous", "f:0~*J5=Zo", "u545314609_eshop1"), "UPDATE `users` SET `username` = '" . $_POST["modifiedUsername"] . "' WHERE `users`.`userid` = " . $_SESSION["userid"] . ";")) {
                         $_SESSION["username"] = $_POST["modifiedUsername"];
                     ?>
                         <p style="color: green;font-size: smaller;">Le nom d'utilisteur à bien été modifié.</p>
