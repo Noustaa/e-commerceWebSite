@@ -10,6 +10,15 @@
 </head>
 <body>
     <?php include "./NavMenu.php";
+
+    if ($_SESSION["logged_in"] != "yes"){
+        ?>
+            <p style="margin-top: 30px;text-align: center;">Vous devez vous connecter pour valider un achat.</p>
+            <p style="text-align: center;"><a href="Account.php">Connectez-vous</a> ou <a href="Register.php">enregistrez-vous.</a></p>
+        <?php
+        return;
+    }
+
     include "./ValidateCartHeader.php";
     $connect = mysqli_connect("localhost", "u545314609_tanous", "f:0~*J5=Zo", "u545314609_eshop1");
     ?>
