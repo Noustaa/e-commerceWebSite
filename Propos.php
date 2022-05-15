@@ -20,6 +20,7 @@
             <a href="https://www.headict.com/"><li>Headict</li></a>
             <a href="https://www.bon-clic-bon-genre.fr/"><li>Bon Clic Bon Genre</li></a>
         </ul>
+        <p>Tous les pictogrammes ont été pris sur le site <a style="text-decoration: none" href="https://icones8.fr/">Icons8.</a></p>
     </div>
 </body>
 </html>
