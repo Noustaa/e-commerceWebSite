@@ -101,7 +101,23 @@
                     </div>
                 </div>
                 <div>
-                        
+                <p style="text-align: center; font-size: larger;">Ces articles pourraient vous intéresser:</p>
+                        <div class="interestWrapper">
+                            <?php 
+                            $query = "SELECT * FROM `produit` WHERE Categorie = $dataArray->Categorie AND ID != $dataArray->ID ORDER BY rand();";
+                            $runQuery = mysqli_query($connect, $query);
+                                for ($i=0; $i < 5; $i++) { 
+                                    $dataArray = mysqli_fetch_object($runQuery);
+                                    ?>
+                                        <div class="interest">
+                                            <a href="Produits.php?productItem=<?php echo $dataArray->ID ?>"><img src="<?php echo $dataArray->Image ?>"></a>
+                                            <p><?php echo $dataArray->Nom ?></p>
+                                            <p><?php echo $dataArray->Prix ?>€</p>
+                                        </div>
+                                    <?php 
+                                }
+                            ?>
+                        </div>
                 </div>
             <?php
         }

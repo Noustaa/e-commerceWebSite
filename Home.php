@@ -13,17 +13,22 @@
 <body>
 <?php include "./NavMenu.php"?>
 
-    <div class="slideshow">
-        <ul class="sContent">
-            <li><img src="https://us.123rf.com/450wm/sabelskaya/sabelskaya1603/sabelskaya160300156/54119905-carr%C3%A9-neon-lumi%C3%A8re-bleue-au-n%C3%A9on-.jpg?ver=6"/></li>
-            <li><img src="https://us.123rf.com/450wm/sabelskaya/sabelskaya1603/sabelskaya160300156/54119905-carr%C3%A9-neon-lumi%C3%A8re-bleue-au-n%C3%A9on-.jpg?ver=6"/></li>
-            <li><img src="https://us.123rf.com/450wm/sabelskaya/sabelskaya1603/sabelskaya160300156/54119905-carr%C3%A9-neon-lumi%C3%A8re-bleue-au-n%C3%A9on-.jpg?ver=6"/></li>
-        </ul>
-    </div>
+    <div class="mainWrapper">
+        <div class="firstSlideDiv">
+            <a href="Produits.php?categorie=Bonnets"><img src="/ressources/slideBonnets.jpg">
+            <h1>Découvrez notre selection de bonnets</h1></a>
+        </div>
+        <div class="secondSlideDivWrapper">
+            <div class="secondSlideDiv">
+                <a href="Produits.php?categorie=Manteaux"><img src="/ressources/slideManteaux.jfif">
+                <h1>Découvrez notre selection de manteaux</h1></a>
+            </div>
+        </div>
+        <div class="thirdSlideDiv">
+            <a href="Produits.php?categorie=Baskets"><img src="/ressources/slideBaskets.jpg">
+            <h1>Découvrez notre selection de chaussures</h1></a>
+        </div>
+    </div>    
 
-    <hr style="width:40%" , size="1" , color=black>
-
-
-    
 </body> 
 </html>

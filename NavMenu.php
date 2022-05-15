@@ -17,15 +17,15 @@
 
 <div>
     <hr style="width:100%" , size="6" , color=black>
-    <h1 style="text-align:center">E-Shop</h1>
+    <h1 style="text-align:center; margin: 0;">E-Shop</h1>
     <hr style="width:50%" , size="3" , color=black>
-    <h1 style="text-align:center">By Tanous & Salim</h1>
-    <hr style="width:100%" , size="6" , color=black>
+    <h1 style="text-align:center;margin: 0;">By Tanous & Salim</h1>
+    <hr style="width:100%; margin-bottom: 0;" , size="6" , color=black>
 </div>
 
 <nav style="text-align: center;">
     <div>
-        <ul class="delPuces menuButtonStyle">
+        <ul class="delPuces menuButtonStyle navBarUl">
             <a href="Home.php">
                 <li>Accueil</li>
             </a>
@@ -51,7 +51,7 @@
     </div>
 </nav>
 
-<hr style="width:40%" , size="1" , color=black>
+<hr style="width:40%;margin-top: 0;" , size="1" , color=black>
 
 <?php
 if ($_SESSION["logged_in"] != "yes") {
@@ -68,7 +68,7 @@ else {
 if ($_SESSION["addToCart"]){
     ?>
         <a href="Cart.php">
-            <div style="position:absolute;top:70px;right:20px;">
+            <div style="position:absolute;top:50px;right:20px;">
                 <img src="/ressources/panierPlein.png">
                 <p class="numberOfItemsInCart"><?php echo count($_SESSION["addToCart"]) ?></p>
             </div>
@@ -78,7 +78,7 @@ if ($_SESSION["addToCart"]){
 else {
     ?>
         <a href="Cart.php">
-            <img style="position:absolute;top:70px;right:20px;" src="/ressources/panierVide.png">
+            <img style="position:absolute;top:50px;right:20px;" src="/ressources/panierVide.png">
         </a>
     <?php
 }
