@@ -98,14 +98,20 @@
                                 <input type="image" src="/ressources/addToCart.png">
                             </button>
                         </form>
-                        <form action="GetItem.php" method="post" class="editItemFormShowProduct">
-                            <input type="hidden" name="productID" value="<?php echo $dataArray->ID?>">
-                            <input type="image" src="/ressources/edit.png">
-                        </form> 
-                        <form action="DeleteItem.php" method="post" class="deleteItemFormShowProduct">
-                            <input type="hidden" name="productID" value="<?php echo $dataArray->ID?>">
-                            <input type="image" src="/ressources/delete.png">
-                        </form> 
+                        <?php
+                            if ($_SESSION["isAdmin"] == "yes"){
+                                ?>
+                                    <form action="GetItem.php" method="post" class="editItemFormShowProduct">
+                                        <input type="hidden" name="productID" value="<?php echo $dataArray->ID?>">
+                                        <input type="image" src="/ressources/edit.png">
+                                    </form> 
+                                    <form action="DeleteItem.php" method="post" class="deleteItemFormShowProduct">
+                                        <input type="hidden" name="productID" value="<?php echo $dataArray->ID?>">
+                                        <input type="image" src="/ressources/delete.png">
+                                    </form> 
+                                <?php
+                            }
+                        ?>
                     </div>
                 </div>
                 <div>
