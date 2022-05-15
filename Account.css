@@ -13,7 +13,6 @@
 .usernameDetails>p{
     margin: 0;
     padding-right: 10px;
-    
 }
 .usernameDetails>form>input{
     font-size: 3mm;
@@ -25,11 +24,40 @@
 .passwordDetails>form>input{
     font-size: 3mm;
 }
-.accountDetails{
-    flex-direction: column;
+.firstnameDetails>p{
+    margin: 0;
+    padding-right: 10px;
 }
-.accountDetails>p{
-    margin: 5px;
+.firstnameDetails>form>input{
+    font-size: 3mm;
+}
+.lastnameDetails>p{
+    margin: 0;
+    padding-right: 10px;
+}
+.lastnameDetails>form>input{
+    font-size: 3mm;
+}
+.emailDetails>p{
+    margin: 0;
+    padding-right: 10px;
+}
+.emailDetails>form>input{
+    font-size: 3mm;
+}
+.birthdateDetails>p{
+    margin: 0;
+    padding-right: 10px;
+}
+.birthdateDetails>form>input{
+    font-size: 3mm;
+}
+.genderDetails>p{
+    margin: 0;
+    padding-right: 10px;
+}
+.genderDetails>form>input{
+    font-size: 3mm;
 }
 .commandHistoryWrapper{
     text-align: center;

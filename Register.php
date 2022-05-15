@@ -66,7 +66,7 @@
                     <input type="date" name="birthdate" id="birthdate">
                 </p>
                 <p>
-                    <label for="sexe">Sexe: </label>
+                    <label for="sexe">Genre: </label>
                     <span class="radioSexe">
                         <input type="radio" id="sexeM" name="sexe" value="M">
                         <label for="sexeM" style="font-size: smaller;">Masculin</label>

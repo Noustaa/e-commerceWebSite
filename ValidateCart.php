@@ -13,7 +13,7 @@
     include "./ValidateCartHeader.php";
     $connect = mysqli_connect("localhost", "u545314609_tanous", "f:0~*J5=Zo", "u545314609_eshop1");
     ?>
-    <?php if (!$_POST || $_POST["queryOKAddAddress"] || $_POST["queryOKAddCard"]){
+    <?php if (!$_POST || $_POST["queryOKAddAddress"]){
         ?>
             <div class="mainWrapper">
                 <H1>Adresse de livraison:</H1>
@@ -24,39 +24,39 @@
                         ?> 
                         <p>Veuillez selectionner une addresse de livraison:</p>
                         <div class="secondWrapper">
-                        <div class="displayItemWrapper">
-                        <?php
-                        $valueCounter = 1;
-                        while (($dataArray = mysqli_fetch_object($runQuery)) != null)
-                        {                 
-                        ?>
-                            <input type="radio" name="selectedItem" value="<?php echo $valueCounter ?>" id="<?php echo $valueCounter ?>" hidden>
-                            <label class="radioValidator" for="<?php echo $valueCounter ?>">
-                            <div class="displayItem">
-                                <p>Rue: <?php echo "$dataArray->Numero, $dataArray->Rue" ?></p>
-                                <p>Code postal: <?php echo $dataArray->CodePostal ?></p>
-                                <p>Ville: <?php echo $dataArray->Ville ?></p>
-                            </div>
-                            </label>
-                        <?php
-                        $valueCounter += 1;
-                        }
-                        ?> </div> <?php
-                        ?>
-                            <form class="formValidate" method="post" onsubmit="return returnSelectedAddress()">
-                                <input type="text" name="selectedAddress" id="selectedAddress" hidden readonly>
-                                <input type="submit" value="Valider">
-                            </form>
-                            <script>
-                                function returnSelectedAddress(){
-                                    if (document.querySelector('input[name="selectedItem"]:checked')){
-                                        document.getElementById("selectedAddress").value = document.querySelector('input[name="selectedItem"]:checked').value;
+                            <div class="displayItemWrapper">
+                            <?php
+                            $valueCounter = 1;
+                            while (($dataArray = mysqli_fetch_object($runQuery)) != null)
+                            {                 
+                            ?>
+                                <input type="radio" name="selectedItem" value="<?php echo $valueCounter ?>" id="<?php echo $valueCounter ?>" hidden>
+                                <label class="radioValidator" for="<?php echo $valueCounter ?>">
+                                <div class="displayItem">
+                                    <p>Rue: <?php echo "$dataArray->Numero, $dataArray->Rue" ?></p>
+                                    <p>Code postal: <?php echo $dataArray->CodePostal ?></p>
+                                    <p>Ville: <?php echo $dataArray->Ville ?></p>
+                                </div>
+                                </label>
+                            <?php
+                            $valueCounter += 1;
+                            }
+                            ?> </div> <?php
+                            ?>
+                                <form class="formValidate" method="post" onsubmit="return returnSelectedAddress()">
+                                    <input type="text" name="selectedAddress" id="selectedAddress" hidden readonly>
+                                    <input type="submit" value="Valider">
+                                </form>
+                                <script>
+                                    function returnSelectedAddress(){
+                                        if (document.querySelector('input[name="selectedItem"]:checked')){
+                                            document.getElementById("selectedAddress").value = document.querySelector('input[name="selectedItem"]:checked').value;
+                                        }
+                                        else{
+                                            return false;
+                                        }
                                     }
-                                    else{
-                                        return false;
-                                    }
-                                }
-                            </script>
+                                </script>
                         </div>
                         <?php
                     }
@@ -161,6 +161,7 @@
                                 <legend>Ajouter une carte de paiement</legend>
                                 <form action="AddCard.php" method="post">
                                     <input type="hidden" name="ID" value="<?php echo $_SESSION["userid"] ?>">
+                                    <input type="hidden" name="selectedAddress" value="<?php echo $_POST["selectedAddress"] ?>">
                                     <p>
                                         <label for="titulaire">Nom et prénom: </label>
                                         <input type="text" name="titulaire" id="titulaire" required>
@@ -190,8 +191,13 @@
         <?php
     }
     elseif ($_POST["selectedAddressValidate"] && $_POST["selectedCard"]){
+        if (!$_SESSION["addToCart"])
+        {
+            header("Location: Home.php");
+            return;
+        }
         ?>
-        <div class="mainWrapper">
+        <div style="width: 30%" class="mainWrapper">
             <H1>Commande validée !</H1>
             <p>Nous vous remercions pour votre commande.</p>
             <p>Voici un récapitulatif:</p>

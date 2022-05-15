@@ -17,6 +17,7 @@ $connect = mysqli_connect("localhost", "u545314609_tanous", "f:0~*J5=Zo", "u5453
             ?>
             <form action="ValidateCart.php" method="post" id="sendBack">
                 <input type="hidden" name="queryOKAddCard" value="OK">
+                <input type="hidden" name="selectedAddress" value="<?php echo $_POST["selectedAddress"] ?>">
             </form> 
             <script>
                 document.getElementById('sendBack').submit();
